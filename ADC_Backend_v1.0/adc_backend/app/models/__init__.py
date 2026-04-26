@@ -8,3 +8,4 @@ from app.models.query import Query, QueryResponse
 from app.models.tor import TOR, TORDeliverable, TORStakeholder
 from app.models.criterion import ScoringCriterion
 from app.models.audit import AuditLog
+from app.models.landing_config import LandingConfig

@@ -151,4 +151,10 @@ export const billingApi = {
     api.post('/billing/checkout', { tier, success_url: successUrl, cancel_url: cancelUrl }),
 }
 
+// ── Marketplace (admin landing content) ─────────────────────────────────────
+export const marketplaceApi = {
+  getLandingConfigAdmin: () => api.get('/marketplace/admin/landing-config'),
+  updateLandingConfigAdmin: (payload) => api.put('/marketplace/admin/landing-config', payload),
+}
+
 export default api

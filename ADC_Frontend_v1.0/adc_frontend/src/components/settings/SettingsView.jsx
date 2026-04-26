@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { Save, Plus, X, Upload, Trash2, UserPlus, Download } from 'lucide-react'
-import { orgApi, domainApi, userApi } from '../../api/client'
+import { Save, Plus, X, Upload, UserPlus, Download } from 'lucide-react'
+import { orgApi, domainApi, userApi, marketplaceApi } from '../../api/client'
 import { useAppCtx } from '../../contexts/AppContext'
 import { useAuth } from '../../contexts/AuthContext'
 import { Spinner, FormRow, useToast, ConfirmDialog, Modal } from '../shared/UI'
@@ -14,9 +14,91 @@ function Section({ title, children }) {
   )
 }
 
+const DEFAULT_LANDING_FORM = {
+  app_name: '',
+  company: {
+    legal_name: '',
+    registration_number: '',
+    vat_number: '',
+    csd_number: '',
+  },
+  links: {
+    app_url: '',
+    login_url: '',
+    website_url: '',
+    about_url: '',
+    case_studies_url: '',
+    blog_url: '',
+    documentation_url: '',
+    user_guide_url: '',
+    status_url: '',
+    privacy_url: '',
+    terms_url: '',
+    cookie_url: '',
+    popia_url: '',
+    info_email: '',
+    support_email: '',
+    sales_email: '',
+    careers_email: '',
+    press_email: '',
+    phone: '',
+  },
+  plans: {
+    starter: {
+      code: 'starter',
+      label: 'Starter',
+      monthly_price: '',
+      annual_price: '',
+      cta_label: '',
+    },
+    professional: {
+      code: 'professional',
+      label: 'Professional',
+      monthly_price: '',
+      annual_price: '',
+      cta_label: '',
+    },
+    enterprise: {
+      code: 'enterprise',
+      label: 'Enterprise',
+      monthly_price: '',
+      annual_price: '',
+      cta_label: '',
+    },
+  },
+}
+
+function normalizeLandingConfig(input = {}) {
+  return {
+    app_name: input.app_name || '',
+    company: {
+      ...DEFAULT_LANDING_FORM.company,
+      ...(input.company || {}),
+    },
+    links: {
+      ...DEFAULT_LANDING_FORM.links,
+      ...(input.links || {}),
+    },
+    plans: {
+      starter: {
+        ...DEFAULT_LANDING_FORM.plans.starter,
+        ...((input.plans || {}).starter || {}),
+      },
+      professional: {
+        ...DEFAULT_LANDING_FORM.plans.professional,
+        ...((input.plans || {}).professional || {}),
+      },
+      enterprise: {
+        ...DEFAULT_LANDING_FORM.plans.enterprise,
+        ...((input.plans || {}).enterprise || {}),
+      },
+    },
+  }
+}
+
 export default function SettingsView() {
-  const { org, setOrg, domains, setDomains, criteria, setCriteria, logoUrl, setLogoUrl, refreshAll } = useAppCtx()
-  const { isAdmin, user } = useAuth()
+  const { org, setOrg, domains, setDomains, criteria, setCriteria, logoUrl, setLogoUrl } = useAppCtx()
+  const { isAdmin } = useAuth()
   const toast = useToast()
   const fileRef = useRef()
 
@@ -32,6 +114,9 @@ export default function SettingsView() {
   const [newUserOpen, setNewUserOpen] = useState(false)
   const [newUser, setNewUser] = useState({ username: '', email: '', password: '', full_name: '', role: 'analyst' })
   const [savingUser, setSavingUser] = useState(false)
+  const [landingForm, setLandingForm] = useState(DEFAULT_LANDING_FORM)
+  const [loadingLanding, setLoadingLanding] = useState(false)
+  const [savingLanding, setSavingLanding] = useState(false)
 
   useEffect(() => {
     if (org) {
@@ -53,8 +138,14 @@ export default function SettingsView() {
   useEffect(() => {
     if (isAdmin) {
       userApi.list().then(r => setUsers(r.data)).catch(() => {})
+
+      setLoadingLanding(true)
+      marketplaceApi.getLandingConfigAdmin()
+        .then((r) => setLandingForm(normalizeLandingConfig(r.data)))
+        .catch(() => toast('Failed to load landing configuration', 'error'))
+        .finally(() => setLoadingLanding(false))
     }
-  }, [isAdmin])
+  }, [isAdmin, toast])
 
   const saveOrg = async () => {
     setSavingOrg(true)
@@ -132,6 +223,58 @@ export default function SettingsView() {
       setNewUser({ username: '', email: '', password: '', full_name: '', role: 'analyst' })
     } catch (e) { toast(e.response?.data?.detail || 'Failed to create user', 'error') }
     finally { setSavingUser(false) }
+  }
+
+  const updateLandingCompany = (field, value) => {
+    setLandingForm(prev => ({
+      ...prev,
+      company: {
+        ...prev.company,
+        [field]: value,
+      },
+    }))
+  }
+
+  const updateLandingLink = (field, value) => {
+    setLandingForm(prev => ({
+      ...prev,
+      links: {
+        ...prev.links,
+        [field]: value,
+      },
+    }))
+  }
+
+  const updateLandingPlan = (planCode, field, value) => {
+    setLandingForm(prev => ({
+      ...prev,
+      plans: {
+        ...prev.plans,
+        [planCode]: {
+          ...prev.plans[planCode],
+          [field]: value,
+        },
+      },
+    }))
+  }
+
+  const saveLandingConfig = async () => {
+    setSavingLanding(true)
+    try {
+      const payload = {
+        app_name: landingForm.app_name,
+        company: landingForm.company,
+        links: landingForm.links,
+        plans: landingForm.plans,
+      }
+      const { data } = await marketplaceApi.updateLandingConfigAdmin(payload)
+      setLandingForm(normalizeLandingConfig(data))
+      toast('Landing content settings saved')
+    } catch (e) {
+      toast(e.response?.data?.detail || 'Failed to save landing settings', 'error')
+    } finally {
+      setSavingLanding(false)
+    }
   }
 
   return (
@@ -264,6 +407,131 @@ export default function SettingsView() {
               <button className="btn btn-sm" onClick={() => setNewUserOpen(true)}>
                 <UserPlus size={13} /> Add User
               </button>
+            </Section>
+          )}
+
+          {isAdmin && (
+            <Section title="Public Landing Content">
+              <p className="text-xs text-gray-500 mb-3">
+                These values drive the public landing page via the marketplace landing-config API.
+              </p>
+              {loadingLanding ? (
+                <div className="py-5"><Spinner size={16} /></div>
+              ) : (
+                <>
+                  <FormRow label="App Name">
+                    <input
+                      className="input"
+                      value={landingForm.app_name}
+                      onChange={e => setLandingForm(prev => ({ ...prev, app_name: e.target.value }))}
+                    />
+                  </FormRow>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <FormRow label="Company Legal Name">
+                      <input className="input" value={landingForm.company.legal_name} onChange={e => updateLandingCompany('legal_name', e.target.value)} />
+                    </FormRow>
+                    <FormRow label="Company Website">
+                      <input className="input" value={landingForm.links.website_url} onChange={e => updateLandingLink('website_url', e.target.value)} />
+                    </FormRow>
+                    <FormRow label="Registration Number">
+                      <input className="input" value={landingForm.company.registration_number} onChange={e => updateLandingCompany('registration_number', e.target.value)} />
+                    </FormRow>
+                    <FormRow label="VAT Number">
+                      <input className="input" value={landingForm.company.vat_number} onChange={e => updateLandingCompany('vat_number', e.target.value)} />
+                    </FormRow>
+                    <FormRow label="CSD Number">
+                      <input className="input" value={landingForm.company.csd_number} onChange={e => updateLandingCompany('csd_number', e.target.value)} />
+                    </FormRow>
+                    <FormRow label="Contact Phone">
+                      <input className="input" value={landingForm.links.phone} onChange={e => updateLandingLink('phone', e.target.value)} />
+                    </FormRow>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <FormRow label="App URL">
+                      <input className="input" value={landingForm.links.app_url} onChange={e => updateLandingLink('app_url', e.target.value)} />
+                    </FormRow>
+                    <FormRow label="Login URL">
+                      <input className="input" value={landingForm.links.login_url} onChange={e => updateLandingLink('login_url', e.target.value)} />
+                    </FormRow>
+                    <FormRow label="Info Email">
+                      <input className="input" value={landingForm.links.info_email} onChange={e => updateLandingLink('info_email', e.target.value)} />
+                    </FormRow>
+                    <FormRow label="Support Email">
+                      <input className="input" value={landingForm.links.support_email} onChange={e => updateLandingLink('support_email', e.target.value)} />
+                    </FormRow>
+                    <FormRow label="Sales Email">
+                      <input className="input" value={landingForm.links.sales_email} onChange={e => updateLandingLink('sales_email', e.target.value)} />
+                    </FormRow>
+                    <FormRow label="Careers Email">
+                      <input className="input" value={landingForm.links.careers_email} onChange={e => updateLandingLink('careers_email', e.target.value)} />
+                    </FormRow>
+                    <FormRow label="Press Email">
+                      <input className="input" value={landingForm.links.press_email} onChange={e => updateLandingLink('press_email', e.target.value)} />
+                    </FormRow>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <FormRow label="About URL">
+                      <input className="input" value={landingForm.links.about_url} onChange={e => updateLandingLink('about_url', e.target.value)} />
+                    </FormRow>
+                    <FormRow label="Case Studies URL">
+                      <input className="input" value={landingForm.links.case_studies_url} onChange={e => updateLandingLink('case_studies_url', e.target.value)} />
+                    </FormRow>
+                    <FormRow label="Blog URL">
+                      <input className="input" value={landingForm.links.blog_url} onChange={e => updateLandingLink('blog_url', e.target.value)} />
+                    </FormRow>
+                    <FormRow label="Documentation URL">
+                      <input className="input" value={landingForm.links.documentation_url} onChange={e => updateLandingLink('documentation_url', e.target.value)} />
+                    </FormRow>
+                    <FormRow label="User Guide URL">
+                      <input className="input" value={landingForm.links.user_guide_url} onChange={e => updateLandingLink('user_guide_url', e.target.value)} />
+                    </FormRow>
+                    <FormRow label="Status URL">
+                      <input className="input" value={landingForm.links.status_url} onChange={e => updateLandingLink('status_url', e.target.value)} />
+                    </FormRow>
+                    <FormRow label="Privacy URL">
+                      <input className="input" value={landingForm.links.privacy_url} onChange={e => updateLandingLink('privacy_url', e.target.value)} />
+                    </FormRow>
+                    <FormRow label="Terms URL">
+                      <input className="input" value={landingForm.links.terms_url} onChange={e => updateLandingLink('terms_url', e.target.value)} />
+                    </FormRow>
+                    <FormRow label="Cookie URL">
+                      <input className="input" value={landingForm.links.cookie_url} onChange={e => updateLandingLink('cookie_url', e.target.value)} />
+                    </FormRow>
+                    <FormRow label="POPIA URL">
+                      <input className="input" value={landingForm.links.popia_url} onChange={e => updateLandingLink('popia_url', e.target.value)} />
+                    </FormRow>
+                  </div>
+
+                  <div className="space-y-3 mt-3">
+                    {['starter', 'professional', 'enterprise'].map((planCode) => (
+                      <div key={planCode} className="border border-gray-100 rounded-lg p-3">
+                        <div className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">{planCode} plan</div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                          <FormRow label="Label">
+                            <input className="input" value={landingForm.plans[planCode].label} onChange={e => updateLandingPlan(planCode, 'label', e.target.value)} />
+                          </FormRow>
+                          <FormRow label="Monthly Price">
+                            <input className="input" value={landingForm.plans[planCode].monthly_price} onChange={e => updateLandingPlan(planCode, 'monthly_price', e.target.value)} />
+                          </FormRow>
+                          <FormRow label="Annual Price">
+                            <input className="input" value={landingForm.plans[planCode].annual_price} onChange={e => updateLandingPlan(planCode, 'annual_price', e.target.value)} />
+                          </FormRow>
+                          <FormRow label="CTA Label">
+                            <input className="input" value={landingForm.plans[planCode].cta_label} onChange={e => updateLandingPlan(planCode, 'cta_label', e.target.value)} />
+                          </FormRow>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <button className="btn btn-primary" onClick={saveLandingConfig} disabled={savingLanding}>
+                    {savingLanding ? <Spinner size={14} /> : <Save size={14} />} Save Landing Content
+                  </button>
+                </>
+              )}
             </Section>
           )}
 

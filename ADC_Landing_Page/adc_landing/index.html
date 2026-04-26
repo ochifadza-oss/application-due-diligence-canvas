@@ -114,6 +114,9 @@ nav.scrolled{background:linear-gradient(112deg,rgba(10,30,54,.95) 0%,rgba(21,56,
 .hero-stat-num{font-family:'Source Sans 3',Arial,sans-serif;font-size:2rem;font-weight:800;color:#17385f;line-height:1}
 .hero-stat-num .unit{font-size:1.2rem;color:#2f5f96}
 .hero-stat-label{font-size:13px;color:#46607c;margin-top:6px;letter-spacing:.02em;font-weight:600}
+.hero-live{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:14px;padding:10px 14px;background:rgba(255,255,255,.68);border:1px solid #cbd8e6;border-radius:12px;color:#2f4864;font-size:12px;font-weight:600;max-width:640px}
+.hero-live-label{font-weight:700;color:#1f3d60}
+.hero-live-sep{color:#7f94aa;font-weight:700}
 .hero-visual{position:relative;z-index:1;margin-top:-14px}
 .hero-screen{background:linear-gradient(180deg,#ecf3fa 0%,#e2eaf3 100%);border-radius:16px;border:1px solid rgba(167,183,201,.86);overflow:hidden;box-shadow:0 20px 46px rgba(27,53,84,.2);transform:perspective(1000px) rotateY(-4deg) rotateX(2deg);transition:transform .5s}
 .hero-screen:hover{transform:perspective(1000px) rotateY(-2deg) rotateX(1deg)}
@@ -377,6 +380,7 @@ footer{background:var(--ink);padding:64px 0 32px}
   .hero-stats{grid-template-columns:1fr;padding:14px 16px}
   .hero-stat{padding:2px 0}
   .hero-stat+.hero-stat{border-left:none;border-top:1px solid #d1dce9;padding-left:0;padding-top:16px;margin-top:16px}
+  .hero-live{font-size:11px;gap:6px}
   .trust-bar{padding:24px 0}
   .trust-logo{width:100%;justify-content:center;text-align:center}
   .trust-sep{display:none}
@@ -417,7 +421,7 @@ footer{background:var(--ink);padding:64px 0 32px}
         <a href="#contact">Contact</a>
       </div>
       <div class="nav-cta">
-        <a href="https://application-due-diligence.netlify.app" class="nav-login">Sign in →</a>
+        <a href="https://application-due-diligence.netlify.app/login" class="nav-login" id="nav-signin-link" data-link-key="login_url">Sign in →</a>
         <a href="#pricing" class="btn btn-primary btn-sm" style="border-radius:50px;padding:10px 22px;font-size:13px">Subscribe</a>
       </div>
     </div>
@@ -462,6 +466,16 @@ footer{background:var(--ink);padding:64px 0 32px}
             <div class="hero-stat-num">100<span class="unit">%</span></div>
             <div class="hero-stat-label">POPIA compliant</div>
           </div>
+        </div>
+        <div class="hero-live" id="hero-live-metrics" aria-live="polite">
+          <span class="hero-live-label">Live platform snapshot</span>
+          <span id="live-organisations">0 organisations</span>
+          <span class="hero-live-sep" aria-hidden="true">•</span>
+          <span id="live-applications">0 applications</span>
+          <span class="hero-live-sep" aria-hidden="true">•</span>
+          <span id="live-users">0 active users</span>
+          <span class="hero-live-sep" aria-hidden="true">•</span>
+          <span id="live-queries">0 open queries</span>
         </div>
       </div>
 
@@ -896,8 +910,8 @@ footer{background:var(--ink);padding:64px 0 32px}
       <!-- Starter -->
       <div class="pricing-card reveal reveal-delay-1">
         <div class="pricing-tier">Starter</div>
-        <div class="pricing-price"><span class="currency">R</span>3,500<span class="period">/month</span></div>
-        <div class="pricing-sub">Billed annually — R 42,000/year</div>
+        <div class="pricing-price" id="price-starter-monthly">R 3,500/month</div>
+        <div class="pricing-sub" id="price-starter-annual">Billed annually — R 42,000/year</div>
         <div class="pricing-divider"></div>
         <ul class="pricing-features-list">
           <li><span class="tick">✓</span>Up to 5 users</li>
@@ -910,15 +924,15 @@ footer{background:var(--ink);padding:64px 0 32px}
           <li><span class="cross">✗</span>AI analysis</li>
           <li><span class="cross">✗</span>Custom branding</li>
         </ul>
-        <button class="pricing-btn" onclick="openModal('Starter','R 3,500/month')">Get started</button>
+        <button class="pricing-btn js-plan-cta" data-plan-code="starter" onclick="openModal('starter')">Get started</button>
       </div>
 
       <!-- Professional (featured) -->
       <div class="pricing-card featured reveal">
         <div class="pricing-popular">Most popular</div>
         <div class="pricing-tier">Professional</div>
-        <div class="pricing-price"><span class="currency" style="color:var(--gold)">R</span>8,500<span class="period">/ month</span></div>
-        <div class="pricing-sub">Billed annually — R 102,000/year</div>
+        <div class="pricing-price" id="price-professional-monthly">R 8,500/month</div>
+        <div class="pricing-sub" id="price-professional-annual">Billed annually — R 102,000/year</div>
         <div class="pricing-divider"></div>
         <ul class="pricing-features-list">
           <li><span class="tick">✓</span>Up to 20 users</li>
@@ -931,14 +945,14 @@ footer{background:var(--ink);padding:64px 0 32px}
           <li><span class="cross">✗</span>Custom domain</li>
           <li><span class="cross">✗</span>Dedicated support manager</li>
         </ul>
-        <button class="pricing-btn" onclick="openModal('Professional','R 8,500/month')">Subscribe now</button>
+        <button class="pricing-btn js-plan-cta" data-plan-code="professional" onclick="openModal('professional')">Subscribe now</button>
       </div>
 
       <!-- Enterprise -->
       <div class="pricing-card reveal reveal-delay-2">
         <div class="pricing-tier">Enterprise</div>
-        <div class="pricing-price"><span class="currency">R</span>18,000<span class="period">/month</span></div>
-        <div class="pricing-sub">Billed annually — R 216,000/year</div>
+        <div class="pricing-price" id="price-enterprise-monthly">R 18,000/month</div>
+        <div class="pricing-sub" id="price-enterprise-annual">Billed annually — R 216,000/year</div>
         <div class="pricing-divider"></div>
         <ul class="pricing-features-list">
           <li><span class="tick">✓</span>Unlimited users</li>
@@ -951,7 +965,7 @@ footer{background:var(--ink);padding:64px 0 32px}
           <li><span class="tick">✓</span>On-premise deployment option</li>
           <li><span class="tick">✓</span>White-label branding</li>
         </ul>
-        <button class="pricing-btn" onclick="openModal('Enterprise','R 18,000/month')">Contact us</button>
+        <button class="pricing-btn js-plan-cta" data-plan-code="enterprise" onclick="openModal('enterprise')">Contact us</button>
       </div>
     </div>
 
@@ -1079,8 +1093,8 @@ footer{background:var(--ink);padding:64px 0 32px}
       <h2 class="cta-title">Ready to transform how your department manages applications?</h2>
       <p class="cta-desc">Join South African public sector institutions already using ADC to produce audit-ready portfolio reviews in a single working day.</p>
       <div class="cta-actions">
-        <a href="#pricing" class="btn btn-white btn-lg" onclick="openModal('Professional','R 8,500/month')">Subscribe now →</a>
-        <a href="mailto:sales@adcsystem.co.za" class="btn btn-outline btn-lg" style="color:white;border-color:rgba(255,255,255,.4)">Talk to sales</a>
+        <a href="#pricing" class="btn btn-white btn-lg" onclick="openModal('professional')">Subscribe now →</a>
+        <a href="mailto:sales@adcsystem.co.za" class="btn btn-outline btn-lg" style="color:white;border-color:rgba(255,255,255,.4)" data-email-key="sales_email">Talk to sales</a>
       </div>
       <div class="cta-note">30-day money-back guarantee · No setup fees · Instant access</div>
     </div>
@@ -1098,11 +1112,11 @@ footer{background:var(--ink);padding:64px 0 32px}
         </div>
         <div class="footer-desc">The Application Due Diligence Canvas — purpose-built SaaS for South African public sector ICT governance and portfolio management.</div>
         <div class="footer-contact">
-          <div><i class="fa-solid fa-envelope contact-icon" aria-hidden="true"></i><a href="mailto:info@adcsystem.co.za">info@adcsystem.co.za</a></div>
-          <div><i class="fa-solid fa-phone contact-icon" aria-hidden="true"></i><a href="tel:+27000000000">+27 (0) 00 000 0000</a></div>
-          <div><i class="fa-solid fa-globe contact-icon" aria-hidden="true"></i><a href="https://www.adcsystem.co.za">www.adcsystem.co.za</a></div>
+          <div><i class="fa-solid fa-envelope contact-icon" aria-hidden="true"></i><a href="mailto:info@adcsystem.co.za" data-email-key="info_email">info@adcsystem.co.za</a></div>
+          <div><i class="fa-solid fa-phone contact-icon" aria-hidden="true"></i><a href="tel:+27000000000" data-phone-key="phone">+27 (0) 00 000 0000</a></div>
+          <div><i class="fa-solid fa-globe contact-icon" aria-hidden="true"></i><a href="https://www.adcsystem.co.za" data-link-key="website_url" id="footer-website-link">www.adcsystem.co.za</a></div>
         </div>
-        <div class="footer-reg">GMT Technology Solutions (Pty) Ltd<br>Registration: [CIPC Number] | VAT: [VAT Number]<br>CSD Supplier: [CSD Number]</div>
+        <div class="footer-reg"><span id="company-legal-name">GMT Technology Solutions (Pty) Ltd</span><br>Registration: <span id="company-registration-number">Available on request</span> | VAT: <span id="company-vat-number">Available on request</span><br>CSD Supplier: <span id="company-csd-number">Available on request</span></div>
       </div>
       <div>
         <div class="footer-col-title">Product</div>
@@ -1111,37 +1125,37 @@ footer{background:var(--ink);padding:64px 0 32px}
           <li><a href="#pricing">Pricing</a></li>
           <li><a href="#how-it-works">How it works</a></li>
           <li><a href="#compliance">Compliance</a></li>
-          <li><a href="https://application-due-diligence.netlify.app">Sign in</a></li>
+          <li><a href="https://application-due-diligence.netlify.app/login" data-link-key="login_url">Sign in</a></li>
         </ul>
       </div>
       <div>
         <div class="footer-col-title">Company</div>
         <ul class="footer-links">
-          <li><a href="#">About GMT</a></li>
-          <li><a href="#">Case studies</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="mailto:careers@adcsystem.co.za">Careers</a></li>
-          <li><a href="mailto:press@adcsystem.co.za">Press</a></li>
+          <li><a href="https://www.adcsystem.co.za/about" data-link-key="about_url">About GMT</a></li>
+          <li><a href="https://www.adcsystem.co.za/case-studies" data-link-key="case_studies_url">Case studies</a></li>
+          <li><a href="https://www.adcsystem.co.za/blog" data-link-key="blog_url">Blog</a></li>
+          <li><a href="mailto:careers@adcsystem.co.za" data-email-key="careers_email">Careers</a></li>
+          <li><a href="mailto:press@adcsystem.co.za" data-email-key="press_email">Press</a></li>
         </ul>
       </div>
       <div>
         <div class="footer-col-title">Support</div>
         <ul class="footer-links">
-          <li><a href="#">Documentation</a></li>
-          <li><a href="#">User guide</a></li>
-          <li><a href="mailto:support@adcsystem.co.za">Support desk</a></li>
-          <li><a href="#">System status</a></li>
-          <li><a href="mailto:sales@adcsystem.co.za">Sales enquiries</a></li>
+          <li><a href="https://application-due-diligence.netlify.app/app" data-link-key="documentation_url">Documentation</a></li>
+          <li><a href="https://application-due-diligence.netlify.app/app" data-link-key="user_guide_url">User guide</a></li>
+          <li><a href="mailto:support@adcsystem.co.za" data-email-key="support_email">Support desk</a></li>
+          <li><a href="https://application-due-diligence.netlify.app" data-link-key="status_url">System status</a></li>
+          <li><a href="mailto:sales@adcsystem.co.za" data-email-key="sales_email">Sales enquiries</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <div class="footer-copy">© 2026 GMT Technology Solutions (Pty) Ltd. All rights reserved.</div>
       <div class="footer-legal">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Cookie Policy</a>
-        <a href="#">POPIA Notice</a>
+        <a href="https://www.adcsystem.co.za/privacy-policy" data-link-key="privacy_url">Privacy Policy</a>
+        <a href="https://www.adcsystem.co.za/terms-of-service" data-link-key="terms_url">Terms of Service</a>
+        <a href="https://www.adcsystem.co.za/cookie-policy" data-link-key="cookie_url">Cookie Policy</a>
+        <a href="https://www.adcsystem.co.za/popia" data-link-key="popia_url">POPIA Notice</a>
       </div>
     </div>
   </div>
@@ -1194,7 +1208,7 @@ footer{background:var(--ink);padding:64px 0 32px}
         Complete subscription →
       </button>
     </form>
-    <div class="form-note">By subscribing you agree to our <a href="#" style="color:var(--gold)">Terms of Service</a> and <a href="#" style="color:var(--gold)">Privacy Policy</a>. Your ADC account is provisioned automatically and an activation email is sent immediately.</div>
+    <div class="form-note">By subscribing you agree to our <a href="https://www.adcsystem.co.za/terms-of-service" style="color:var(--gold)" data-link-key="terms_url">Terms of Service</a> and <a href="https://www.adcsystem.co.za/privacy-policy" style="color:var(--gold)" data-link-key="privacy_url">Privacy Policy</a>. Your ADC account is provisioned automatically and an activation email is sent immediately.</div>
     <div class="stripe-note"><i class="fa-solid fa-lock" aria-hidden="true"></i>Payments secured by Stripe · 30-day money-back guarantee</div>
   </div>
 </div>
@@ -1219,7 +1233,7 @@ footer{background:var(--ink);padding:64px 0 32px}
 </div>
 
 <script>
-const APP_URL = 'https://application-due-diligence.netlify.app'
+let APP_URL = 'https://application-due-diligence.netlify.app'
 const QUERY_PARAMS = new URLSearchParams(window.location.search)
 const apiBaseFromQuery = QUERY_PARAMS.get('api_base')
 const MARKETPLACE_API_BASE =
@@ -1230,10 +1244,203 @@ const MARKETPLACE_API_BASE =
     ? 'http://localhost:8000/api/v1'
     : 'https://api.adcsystem.co.za/api/v1')
 
-const PLAN_MAP = {
-  starter: { label: 'Starter', price: 'R 3,500/month' },
-  professional: { label: 'Professional', price: 'R 8,500/month' },
-  enterprise: { label: 'Enterprise', price: 'R 18,000/month' },
+const DEFAULT_MARKETPLACE_CONTEXT = {
+  app_name: 'Application Due Diligence Canvas',
+  company: {
+    legal_name: 'GMT Technology Solutions (Pty) Ltd',
+    registration_number: 'Available on request',
+    vat_number: 'Available on request',
+    csd_number: 'Available on request',
+  },
+  links: {
+    app_url: APP_URL,
+    login_url: `${APP_URL}/login`,
+    website_url: 'https://www.adcsystem.co.za',
+    about_url: 'https://www.adcsystem.co.za/about',
+    case_studies_url: 'https://www.adcsystem.co.za/case-studies',
+    blog_url: 'https://www.adcsystem.co.za/blog',
+    documentation_url: `${APP_URL}/app`,
+    user_guide_url: `${APP_URL}/app`,
+    status_url: APP_URL,
+    privacy_url: 'https://www.adcsystem.co.za/privacy-policy',
+    terms_url: 'https://www.adcsystem.co.za/terms-of-service',
+    cookie_url: 'https://www.adcsystem.co.za/cookie-policy',
+    popia_url: 'https://www.adcsystem.co.za/popia',
+    info_email: 'info@adcsystem.co.za',
+    support_email: 'support@adcsystem.co.za',
+    sales_email: 'sales@adcsystem.co.za',
+    careers_email: 'careers@adcsystem.co.za',
+    press_email: 'press@adcsystem.co.za',
+    phone: '+27 (0) 00 000 0000',
+  },
+  plans: {
+    starter: {
+      code: 'starter',
+      label: 'Starter',
+      monthly_price: 'R 3,500/month',
+      annual_price: 'R 42,000/year',
+      cta_label: 'Get started',
+    },
+    professional: {
+      code: 'professional',
+      label: 'Professional',
+      monthly_price: 'R 8,500/month',
+      annual_price: 'R 102,000/year',
+      cta_label: 'Subscribe now',
+    },
+    enterprise: {
+      code: 'enterprise',
+      label: 'Enterprise',
+      monthly_price: 'R 18,000/month',
+      annual_price: 'R 216,000/year',
+      cta_label: 'Contact us',
+    },
+  },
+  stats: {
+    organisations: 0,
+    applications: 0,
+    active_users: 0,
+    open_queries: 0,
+  },
+}
+
+function cloneDefaultContext() {
+  return JSON.parse(JSON.stringify(DEFAULT_MARKETPLACE_CONTEXT))
+}
+
+function buildPlanMap(plans = {}) {
+  const map = {}
+  Object.entries(plans).forEach(([code, plan]) => {
+    map[code] = {
+      label: plan?.label || code,
+      price: plan?.monthly_price || '',
+      annualPrice: plan?.annual_price || '',
+      ctaLabel: plan?.cta_label || '',
+    }
+  })
+  return map
+}
+
+function mergeMarketplaceContext(remote = {}) {
+  const merged = cloneDefaultContext()
+
+  if (remote.app_name) merged.app_name = remote.app_name
+  if (remote.company) Object.assign(merged.company, remote.company)
+  if (remote.links) Object.assign(merged.links, remote.links)
+  if (remote.stats) Object.assign(merged.stats, remote.stats)
+
+  if (remote.plans) {
+    Object.keys(merged.plans).forEach((code) => {
+      if (remote.plans[code]) {
+        Object.assign(merged.plans[code], remote.plans[code])
+      }
+    })
+  }
+
+  return merged
+}
+
+let PLAN_MAP = buildPlanMap(DEFAULT_MARKETPLACE_CONTEXT.plans)
+
+function safeText(id, value) {
+  const el = document.getElementById(id)
+  if (!el || value === undefined || value === null || value === '') return
+  el.textContent = String(value)
+}
+
+function safeHref(el, href) {
+  if (!el || !href) return
+  el.setAttribute('href', href)
+}
+
+function setEmailLink(el, email) {
+  if (!el || !email) return
+  el.setAttribute('href', `mailto:${email}`)
+  el.textContent = email
+}
+
+function setPhoneLink(el, phone) {
+  if (!el || !phone) return
+  const normalized = String(phone).replace(/\s+/g, '')
+  el.setAttribute('href', `tel:${normalized}`)
+  el.textContent = phone
+}
+
+function formatNumber(value) {
+  return new Intl.NumberFormat('en-ZA').format(Number(value || 0))
+}
+
+function applyMarketplaceContext(context) {
+  const links = context.links || {}
+  const plans = context.plans || {}
+  const stats = context.stats || {}
+
+  if (links.app_url) APP_URL = links.app_url
+
+  PLAN_MAP = buildPlanMap(plans)
+
+  document.querySelectorAll('[data-link-key]').forEach((el) => {
+    const key = el.getAttribute('data-link-key')
+    safeHref(el, links[key])
+  })
+
+  document.querySelectorAll('[data-email-key]').forEach((el) => {
+    const key = el.getAttribute('data-email-key')
+    setEmailLink(el, links[key])
+  })
+
+  document.querySelectorAll('[data-phone-key]').forEach((el) => {
+    const key = el.getAttribute('data-phone-key')
+    setPhoneLink(el, links[key])
+  })
+
+  safeText('company-legal-name', context.company?.legal_name)
+  safeText('company-registration-number', context.company?.registration_number)
+  safeText('company-vat-number', context.company?.vat_number)
+  safeText('company-csd-number', context.company?.csd_number)
+
+  safeText('price-starter-monthly', plans.starter?.monthly_price)
+  safeText('price-starter-annual', plans.starter?.annual_price ? `Billed annually — ${plans.starter.annual_price}` : '')
+  safeText('price-professional-monthly', plans.professional?.monthly_price)
+  safeText('price-professional-annual', plans.professional?.annual_price ? `Billed annually — ${plans.professional.annual_price}` : '')
+  safeText('price-enterprise-monthly', plans.enterprise?.monthly_price)
+  safeText('price-enterprise-annual', plans.enterprise?.annual_price ? `Billed annually — ${plans.enterprise.annual_price}` : '')
+
+  document.querySelectorAll('.js-plan-cta').forEach((btn) => {
+    const planCode = btn.getAttribute('data-plan-code')
+    const nextLabel = PLAN_MAP[planCode]?.ctaLabel
+    if (nextLabel) btn.textContent = nextLabel
+  })
+
+  safeText('live-organisations', `${formatNumber(stats.organisations)} organisations`)
+  safeText('live-applications', `${formatNumber(stats.applications)} applications`)
+  safeText('live-users', `${formatNumber(stats.active_users)} active users`)
+  safeText('live-queries', `${formatNumber(stats.open_queries)} open queries`)
+
+  const websiteLink = document.getElementById('footer-website-link')
+  if (websiteLink && links.website_url) {
+    const pretty = links.website_url.replace(/^https?:\/\//, '').replace(/\/$/, '')
+    websiteLink.textContent = pretty
+  }
+
+  safeHref(document.getElementById('success-signin'), links.login_url || `${APP_URL}/login`)
+}
+
+async function loadMarketplaceContext() {
+  applyMarketplaceContext(DEFAULT_MARKETPLACE_CONTEXT)
+
+  try {
+    const response = await fetch(`${MARKETPLACE_API_BASE}/marketplace/landing-config`, {
+      headers: { Accept: 'application/json' },
+    })
+    if (!response.ok) throw new Error(`Landing config request failed with ${response.status}`)
+
+    const remoteContext = await response.json()
+    const merged = mergeMarketplaceContext(remoteContext)
+    applyMarketplaceContext(merged)
+  } catch (error) {
+    console.warn('ADC landing config fallback in use:', error)
+  }
 }
 
 // ── NAV scroll ─────────────────────────────────────────────────────────
@@ -1317,6 +1524,7 @@ async function submitForm(event) {
   const phone = document.getElementById('f-phone').value
   const users = document.getElementById('f-users').value
   const submittedAt = new Date().toISOString()
+  const supportSalesEmail = document.querySelector('[data-email-key="sales_email"]')?.textContent || 'sales@adcsystem.co.za'
 
   if (!org || !name || !email) {
     showFormError('Please fill in Organisation, Name, and Email.')
@@ -1386,10 +1594,10 @@ async function submitForm(event) {
       provisioning_status: 'failed',
       provisioning_message: String(err.message || 'Unknown error'),
     })
-    showFormError(err.message || 'Unable to submit right now. Please try again or email sales@adcsystem.co.za.')
+    showFormError(err.message || `Unable to submit right now. Please try again or email ${supportSalesEmail}.`)
   } finally {
     submitBtn.disabled = false
-    submitBtn.textContent = 'Complete subscription \u2192'
+    submitBtn.textContent = 'Complete subscription →'
   }
 }
 
@@ -1408,7 +1616,9 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 })
 
 // ── Marketplace query handling ─────────────────────────────────────────
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  await loadMarketplaceContext()
+
   const params = new URLSearchParams(window.location.search)
   const plan = (params.get('plan') || '').toLowerCase()
   const email = params.get('email') || ''
@@ -1419,7 +1629,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (emailField) emailField.value = email
   }
 
-  document.getElementById('f-source').value = source
+  const sourceField = document.getElementById('f-source')
+  if (sourceField) sourceField.value = source
 
   if (PLAN_MAP[plan]) {
     window.setTimeout(() => {
