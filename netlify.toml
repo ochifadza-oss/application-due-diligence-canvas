@@ -1,4 +1,5 @@
 [build]
+  base = "ADC_Frontend_v1.0/adc_frontend"
   command = "npm run build"
   publish = "dist"
 
