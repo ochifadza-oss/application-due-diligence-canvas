@@ -9,6 +9,8 @@
 <meta property="og:description" content="Purpose-built for South African government. Rate, price, and report on your entire application portfolio in one day."/>
 <meta property="og:type" content="website"/>
 <title>ADC — Application Due Diligence Canvas | GMT Technology Solutions</title>
+<link rel="icon" type="image/png" href="assets/logo.png"/>
+<link rel="apple-touch-icon" href="assets/logo.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet"/>
@@ -51,6 +53,7 @@ img{max-width:100%;display:block}
 .container{max-width:1140px;margin:0 auto;padding:0 2rem}
 .section{padding:100px 0}
 .section-sm{padding:64px 0}
+section{scroll-margin-top:92px}
 .tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;border-radius:30px;background:var(--gold-light);color:var(--gold)}
 .tag-teal{background:var(--teal-light);color:var(--teal)}
 .tag-blue{background:var(--blue-light);color:var(--blue)}
@@ -76,7 +79,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;background:li
 nav.scrolled{background:linear-gradient(112deg,rgba(10,30,54,.95) 0%,rgba(21,56,90,.95) 50%,rgba(11,33,58,.95) 100%);backdrop-filter:blur(8px);padding:12px 0}
 .nav-inner{display:flex;align-items:center;justify-content:space-between}
 .nav-logo{display:flex;align-items:center;gap:10px}
-.nav-logo-mark{width:36px;height:36px;background:rgba(255,255,255,.08);border:1px solid rgba(216,229,245,.3);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Source Sans 3',Arial,sans-serif;font-size:15px;font-weight:800;color:var(--white)}
+.nav-logo-mark{width:36px;height:36px;background:rgba(255,255,255,.08);border:1px solid rgba(216,229,245,.3);border-radius:8px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.nav-logo-mark img{width:28px;height:28px;object-fit:contain;display:block}
 .nav-brand{font-family:'Source Sans 3',Arial,sans-serif;font-size:18px;font-weight:700;color:#eaf2fc}
 .nav-links{display:flex;align-items:center;gap:32px}
 .nav-links a{font-size:14px;color:rgba(234,242,251,.85);transition:color .2s}
@@ -86,12 +90,12 @@ nav.scrolled{background:linear-gradient(112deg,rgba(10,30,54,.95) 0%,rgba(21,56,
 .nav-login:hover{color:#ffffff}
 
 /* ── HERO ─────────────────────────────────────────────────────────────── */
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-start;position:relative;overflow:hidden;padding:86px 0 20px;background:linear-gradient(180deg,#edf1f7 0%,#e8edf4 72%,#f4f6f9 100%)}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-start;position:relative;overflow:hidden;padding:106px 0 20px;background:linear-gradient(180deg,#edf1f7 0%,#e8edf4 72%,#f4f6f9 100%)}
 .hero-bg{position:absolute;inset:0;pointer-events:none;overflow:hidden}
 .hero-grid{position:absolute;inset:66px 0 140px;background:radial-gradient(circle at 14% 38%,rgba(255,255,255,.85) 0%,rgba(214,225,236,.72) 36%,rgba(166,184,204,.54) 70%,rgba(126,147,170,.58) 100%),linear-gradient(112deg,rgba(195,209,223,.9) 0%,rgba(238,243,248,.58) 36%,rgba(190,206,222,.64) 72%,rgba(146,166,188,.74) 100%);filter:blur(2px)}
 .hero-grid::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.2) 0 7%,rgba(141,160,179,.22) 7% 13%,rgba(255,255,255,.16) 13% 22%);mix-blend-mode:screen;opacity:.45}
 .hero-grid::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(255,255,255,.24) 0%,rgba(236,241,247,.08) 45%,rgba(236,241,247,.85) 100%)}
-.hero-glow{position:absolute;inset:0 0 auto 0;height:108px;background:linear-gradient(112deg,#0d2748 0%,#1f4a7a 48%,#102f55 100%);opacity:.95}
+.hero-glow{position:absolute;inset:0 0 auto 0;height:52px;background:linear-gradient(to bottom,rgba(16,46,79,.36) 0%,rgba(16,46,79,.08) 62%,rgba(16,46,79,0) 100%)}
 .hero-glow-2{position:absolute;inset:auto 0 0 0;height:220px;background:linear-gradient(to bottom,rgba(236,241,247,0) 0%,rgba(236,241,247,.92) 100%)}
 .hero-content{position:relative;z-index:1;max-width:760px}
 .hero-eyebrow{display:flex;align-items:center;gap:8px;margin-bottom:24px}
@@ -110,7 +114,7 @@ nav.scrolled{background:linear-gradient(112deg,rgba(10,30,54,.95) 0%,rgba(21,56,
 .hero-stat-num{font-family:'Source Sans 3',Arial,sans-serif;font-size:2rem;font-weight:800;color:#17385f;line-height:1}
 .hero-stat-num .unit{font-size:1.2rem;color:#2f5f96}
 .hero-stat-label{font-size:13px;color:#46607c;margin-top:6px;letter-spacing:.02em;font-weight:600}
-.hero-visual{position:relative;z-index:1}
+.hero-visual{position:relative;z-index:1;margin-top:-14px}
 .hero-screen{background:#f8fbff;border-radius:16px;border:1px solid #d7e0ec;overflow:hidden;box-shadow:0 20px 46px rgba(27,53,84,.2);transform:perspective(1000px) rotateY(-4deg) rotateX(2deg);transition:transform .5s}
 .hero-screen:hover{transform:perspective(1000px) rotateY(-2deg) rotateX(1deg)}
 .hero-screen-bar{display:flex;align-items:center;gap:6px;padding:12px 16px;background:#e8eef6;border-bottom:1px solid #d8e2ee}
@@ -118,7 +122,8 @@ nav.scrolled{background:linear-gradient(112deg,rgba(10,30,54,.95) 0%,rgba(21,56,
 .hero-screen-dots{display:flex;gap:5px}
 .hero-screen-url{flex:1;background:#f6f9fc;border-radius:4px;padding:4px 10px;font-size:11px;color:#6c8097;margin:0 12px}
 .mock-topbar{background:#f4f7fb;border-bottom:1px solid #dde5ef;padding:10px 16px;display:flex;align-items:center;gap:8px}
-.mock-logo{width:26px;height:26px;background:#dce8f6;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:#2e5c8e;font-family:'Source Sans 3',Arial,sans-serif}
+.mock-logo{width:26px;height:26px;background:#dce8f6;border-radius:5px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.mock-logo img{width:20px;height:20px;object-fit:contain;display:block}
 .mock-orgname{font-size:11px;font-weight:600;color:#4a5f78;flex:1}
 .mock-tabs{display:flex;gap:1px}
 .mock-tab{padding:4px 10px;font-size:9px;border-radius:4px;color:#6d8096}
@@ -289,7 +294,8 @@ nav.scrolled{background:linear-gradient(112deg,rgba(10,30,54,.95) 0%,rgba(21,56,
 footer{background:var(--ink);padding:64px 0 32px}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:48px}
 .footer-brand-logo{display:flex;align-items:center;gap:10px;margin-bottom:16px}
-.footer-brand-mark{width:32px;height:32px;background:rgba(200,146,42,.2);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:Arial,sans-serif;font-size:13px;font-weight:800;color:var(--gold)}
+.footer-brand-mark{width:32px;height:32px;background:rgba(200,146,42,.14);border:1px solid rgba(200,146,42,.28);border-radius:6px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.footer-brand-mark img{width:24px;height:24px;object-fit:contain;display:block}
 .footer-brand-name{font-family:Arial,sans-serif;font-size:16px;font-weight:700;color:var(--white)}
 .footer-desc{font-size:13px;color:rgba(255,255,255,.4);line-height:1.7;max-width:280px;margin-bottom:20px}
 .footer-contact{font-size:13px;color:rgba(255,255,255,.5);line-height:1.8}
@@ -348,6 +354,7 @@ footer{background:var(--ink);padding:64px 0 32px}
   .problem-grid{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr 1fr}
   .hero-screen{display:none}
+  .hero-visual{margin-top:0}
   .hero-stats{grid-template-columns:repeat(3,1fr);max-width:100%;padding:14px 16px}
   .hero-stat{padding:6px 14px 6px 4px}
   .hero-stat+.hero-stat{padding-left:16px}
@@ -370,7 +377,7 @@ footer{background:var(--ink);padding:64px 0 32px}
 }
 
 @media(max-height:760px) and (min-width:901px){
-  .hero{padding:76px 0 14px}
+  .hero{padding:92px 0 14px}
   .hero-title{font-size:clamp(2rem,4.1vw,3.4rem);margin-bottom:12px}
   .hero-desc{font-size:.95rem;line-height:1.55;margin-bottom:18px}
   .hero-actions{margin-bottom:18px}
@@ -379,6 +386,7 @@ footer{background:var(--ink);padding:64px 0 32px}
   .hero-stat+.hero-stat{padding-left:14px}
   .hero-stat-num{font-size:1.75rem}
   .hero-stat-label{font-size:12px}
+  .hero-visual{margin-top:-20px}
 }
 </style>
 </head>
@@ -389,7 +397,7 @@ footer{background:var(--ink);padding:64px 0 32px}
   <div class="container">
     <div class="nav-inner">
       <div class="nav-logo">
-        <div class="nav-logo-mark">A</div>
+        <div class="nav-logo-mark"><img src="assets/logo.png" alt="ADC logo"/></div>
         <span class="nav-brand">ADC System</span>
       </div>
       <div class="nav-links">
@@ -460,7 +468,7 @@ footer{background:var(--ink);padding:64px 0 32px}
             <div class="hero-screen-url">application-due-diligence.netlify.app</div>
           </div>
           <div class="mock-topbar">
-            <div class="mock-logo">A</div>
+            <div class="mock-logo"><img src="assets/logo.png" alt=""/></div>
             <div class="mock-orgname">Eastern Cape Dept of Health — ADC</div>
             <div class="mock-tabs">
               <div class="mock-tab active">Canvas</div>
@@ -1065,7 +1073,7 @@ footer{background:var(--ink);padding:64px 0 32px}
     <div class="footer-grid">
       <div>
         <div class="footer-brand-logo">
-          <div class="footer-brand-mark">A</div>
+          <div class="footer-brand-mark"><img src="assets/logo.png" alt="ADC logo"/></div>
           <div class="footer-brand-name">ADC System</div>
         </div>
         <div class="footer-desc">The Application Due Diligence Canvas — purpose-built SaaS for South African public sector ICT governance and portfolio management.</div>
