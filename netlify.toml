@@ -1,5 +1,6 @@
 [build]
   base = "ADC_Landing_Page/adc_landing"
+  command = "echo 'Static landing page: no build step required'"
   publish = "."
 
 [[redirects]]
