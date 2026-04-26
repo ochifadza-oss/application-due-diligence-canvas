@@ -3,17 +3,17 @@
 
 [[redirects]]
   from = "/app"
-  to   = "https://app.adcsystem.co.za"
+  to   = "https://application-due-diligence.netlify.app"
   status = 301
 
 [[redirects]]
   from = "/signin"
-  to   = "https://app.adcsystem.co.za/login"
+  to   = "https://application-due-diligence.netlify.app/login"
   status = 302
 
 [[redirects]]
   from = "/login"
-  to   = "https://app.adcsystem.co.za/login"
+  to   = "https://application-due-diligence.netlify.app/login"
   status = 302
 
 [[headers]]

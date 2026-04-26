@@ -16,7 +16,7 @@ class Settings(BaseSettings):
     STRIPE_PRICE_STARTER: str = ""
     STRIPE_PRICE_PROFESSIONAL: str = ""
     STRIPE_PRICE_ENTERPRISE: str = ""
-    MARKETPLACE_LOGIN_URL: str = "https://app.adcsystem.co.za/login"
+    MARKETPLACE_LOGIN_URL: str = "https://application-due-diligence.netlify.app/login"
     SMTP_HOST: str = ""
     SMTP_PORT: int = 587
     SMTP_USERNAME: str = ""
