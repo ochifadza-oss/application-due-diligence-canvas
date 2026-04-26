@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Application Due Diligence Canvas — the only purpose-built SaaS platform for South African public sector ICT application portfolio reviews. Rate, price, and report on your entire application landscape."/>
+<meta name="keywords" content="application due diligence, ICT governance, public sector, South Africa, PFMA, MFMA, application portfolio management"/>
+<meta property="og:title" content="ADC — Application Due Diligence Canvas"/>
+<meta property="og:description" content="Purpose-built for South African government. Rate, price, and report on your entire application portfolio in one day."/>
+<meta property="og:type" content="website"/>
+<title>ADC — Application Due Diligence Canvas | GMT Technology Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<style>
+/* ── RESET & BASE ────────────────────────────────────────────────────── */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#0B0E1A;
+  --ink-2:#3D4460;
+  --ink-3:#8892B0;
+  --surface:#F7F8FC;
+  --white:#FFFFFF;
+  --gold:#C8922A;
+  --gold-light:#F5E6C8;
+  --teal:#1D9E75;
+  --teal-light:#E0F5ED;
+  --danger:#D94040;
+  --danger-light:#FCEAEA;
+  --amber:#BA7517;
+  --amber-light:#FDF0DC;
+  --blue:#1B4FD8;
+  --blue-light:#EBF0FF;
+  --accent:#C8922A;
+  --border:#E4E8F0;
+  --radius:12px;
+  --radius-lg:20px;
+  --shadow:0 2px 20px rgba(11,14,26,.07);
+  --shadow-lg:0 8px 48px rgba(11,14,26,.14);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4,.display{font-family:'Syne',sans-serif}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+/* ── UTILITY ─────────────────────────────────────────────────────────── */
+.container{max-width:1140px;margin:0 auto;padding:0 2rem}
+.section{padding:100px 0}
+.section-sm{padding:64px 0}
+.tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;border-radius:30px;background:var(--gold-light);color:var(--gold)}
+.tag-teal{background:var(--teal-light);color:var(--teal)}
+.tag-blue{background:var(--blue-light);color:var(--blue)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:50px;font-family:'Syne',sans-serif;font-size:14px;font-weight:700;letter-spacing:.03em;cursor:pointer;border:none;transition:all .2s;text-decoration:none}
+.btn-primary{background:var(--ink);color:var(--white)}
+.btn-primary:hover{background:#1B4FD8;transform:translateY(-1px);box-shadow:0 8px 24px rgba(27,79,216,.3)}
+.btn-gold{background:var(--gold);color:var(--white)}
+.btn-gold:hover{background:#b07d20;transform:translateY(-1px);box-shadow:0 8px 24px rgba(200,146,42,.35)}
+.btn-outline{background:transparent;color:var(--ink);border:1.5px solid var(--border)}
+.btn-outline:hover{border-color:var(--ink);background:var(--surface)}
+.btn-white{background:var(--white);color:var(--ink)}
+.btn-white:hover{background:var(--gold-light);color:var(--gold);transform:translateY(-1px)}
+.btn-lg{padding:18px 40px;font-size:16px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.text-center{text-align:center}
+.mt-2{margin-top:.5rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}.mt-12{margin-top:3rem}.mt-16{margin-top:4rem}
+.mb-2{margin-bottom:.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mb-12{margin-bottom:3rem}
+
+/* ── NAV ─────────────────────────────────────────────────────────────── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;transition:all .3s}
+nav.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--border);padding:12px 0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo-mark{width:36px;height:36px;background:var(--ink);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:15px;font-weight:800;color:var(--white)}
+.nav-brand{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--ink)}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{font-size:14px;color:var(--ink-2);transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{display:flex;align-items:center;gap:12px}
+.nav-login{font-size:14px;color:var(--ink-2);transition:color .2s}
+.nav-login:hover{color:var(--blue)}
+
+/* ── HERO ─────────────────────────────────────────────────────────────── */
+.hero{min-height:100vh;background:var(--ink);display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;padding:120px 0 80px}
+.hero-bg{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:60px 60px}
+.hero-glow{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(200,146,42,.18) 0%,transparent 70%);top:-200px;right:-100px;animation:pulse 8s ease-in-out infinite}
+.hero-glow-2{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(27,79,216,.15) 0%,transparent 70%);bottom:-100px;left:-100px;animation:pulse 10s ease-in-out infinite reverse}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.1);opacity:1}}
+.hero-content{position:relative;z-index:1;max-width:760px}
+.hero-eyebrow{display:flex;align-items:center;gap:8px;margin-bottom:24px}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:30px;border:1px solid rgba(200,146,42,.4);background:rgba(200,146,42,.12);font-size:12px;font-weight:600;color:var(--gold);letter-spacing:.08em;text-transform:uppercase}
+.hero-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-title{font-size:clamp(3rem,7vw,5.5rem);font-weight:800;line-height:1.02;color:var(--white);letter-spacing:-.02em;margin-bottom:24px}
+.hero-title .accent{color:var(--gold)}
+.hero-title .line2{display:block;color:rgba(255,255,255,.65)}
+.hero-desc{font-size:1.15rem;line-height:1.75;color:rgba(255,255,255,.6);max-width:560px;margin-bottom:40px;font-weight:300}
+.hero-desc strong{color:rgba(255,255,255,.9);font-weight:500}
+.hero-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:64px}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid rgba(255,255,255,.1);padding-top:40px;max-width:560px}
+.hero-stat{padding:0 32px 0 0}
+.hero-stat+.hero-stat{border-left:1px solid rgba(255,255,255,.1);padding-left:32px}
+.hero-stat-num{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:var(--white);line-height:1}
+.hero-stat-num .unit{font-size:1.2rem;color:var(--gold)}
+.hero-stat-label{font-size:12px;color:rgba(255,255,255,.45);margin-top:5px;letter-spacing:.04em}
+.hero-visual{position:relative;z-index:1}
+.hero-screen{background:#141828;border-radius:16px;border:1px solid rgba(255,255,255,.1);overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.5);transform:perspective(1000px) rotateY(-5deg) rotateX(2deg);transition:transform .5s}
+.hero-screen:hover{transform:perspective(1000px) rotateY(-2deg) rotateX(1deg)}
+.hero-screen-bar{display:flex;align-items:center;gap:6px;padding:12px 16px;background:#0D1120;border-bottom:1px solid rgba(255,255,255,.06)}
+.hero-screen-dot{width:10px;height:10px;border-radius:50%}
+.hero-screen-dots{display:flex;gap:5px}
+.hero-screen-url{flex:1;background:rgba(255,255,255,.06);border-radius:4px;padding:4px 10px;font-size:11px;color:rgba(255,255,255,.3);margin:0 12px}
+.mock-topbar{background:#0D1120;border-bottom:1px solid rgba(255,255,255,.06);padding:10px 16px;display:flex;align-items:center;gap:8px}
+.mock-logo{width:26px;height:26px;background:rgba(200,146,42,.2);border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:var(--gold);font-family:'Syne',sans-serif}
+.mock-orgname{font-size:11px;font-weight:600;color:rgba(255,255,255,.7);flex:1}
+.mock-tabs{display:flex;gap:1px}
+.mock-tab{padding:4px 10px;font-size:9px;border-radius:4px;color:rgba(255,255,255,.35)}
+.mock-tab.active{background:rgba(255,255,255,.08);color:rgba(255,255,255,.8);font-weight:600}
+.mock-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:10px 12px;background:#0F1525}
+.mock-cell{background:#1A2035;border-radius:8px;padding:10px;border:1px solid rgba(255,255,255,.05)}
+.mock-cell-name{font-size:9px;font-weight:600;color:rgba(255,255,255,.7);margin-bottom:5px}
+.mock-chip{font-size:8px;background:rgba(255,255,255,.05);border-radius:3px;padding:2px 5px;color:rgba(255,255,255,.4);margin-bottom:2px;display:flex;justify-content:space-between}
+.mock-chip .s-g{color:#1D9E75;font-weight:600}
+.mock-chip .s-a{color:#BA7517;font-weight:600}
+.mock-chip .s-r{color:#D94040;font-weight:600}
+.mock-progbar{height:2px;background:rgba(255,255,255,.06);border-radius:1px;margin-top:5px;overflow:hidden}
+.mock-progfill{height:100%;border-radius:1px;background:var(--teal)}
+.mock-badge{font-size:8px;padding:1px 5px;border-radius:8px;float:right}
+.mock-badge-g{background:rgba(29,158,117,.15);color:#1D9E75}
+.mock-badge-a{background:rgba(186,117,23,.15);color:#BA7517}
+.mock-badge-r{background:rgba(217,64,64,.15);color:#D94040}
+
+/* ── LOGOS / TRUST BAR ───────────────────────────────────────────────── */
+.trust-bar{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:28px 0}
+.trust-label{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:20px;text-align:center}
+.trust-logos{display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap}
+.trust-logo{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--ink-3);letter-spacing:.05em;opacity:.7}
+.trust-logo:hover{opacity:1;color:var(--ink)}
+
+/* ── PROBLEM ─────────────────────────────────────────────────────────── */
+.problem-section{background:var(--white)}
+.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:48px}
+.problem-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;position:relative;overflow:hidden;transition:all .25s}
+.problem-card:hover{border-color:var(--danger);box-shadow:0 4px 24px rgba(217,64,64,.08)}
+.problem-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--danger)}
+.problem-icon{font-size:28px;margin-bottom:14px}
+.problem-title{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:8px}
+.problem-desc{font-size:14px;line-height:1.7;color:var(--ink-2)}
+
+/* ── FEATURES ─────────────────────────────────────────────────────────── */
+.features-section{background:var(--surface)}
+.feature-tabs{display:flex;gap:6px;margin-bottom:48px;overflow-x:auto;padding-bottom:4px}
+.feature-tab{padding:10px 22px;border-radius:50px;font-size:13px;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--ink-2);transition:all .2s;white-space:nowrap;font-family:'DM Sans',sans-serif}
+.feature-tab.active{background:var(--ink);color:var(--white)}
+.feature-tab:hover:not(.active){background:var(--border)}
+.feature-content{display:none;animation:fadeIn .3s ease}
+.feature-content.active{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.feature-list{list-style:none}
+.feature-list li{display:flex;align-items:flex-start;gap:12px;padding:14px 0;border-bottom:1px solid var(--border)}
+.feature-list li:last-child{border-bottom:none}
+.feature-check{width:22px;height:22px;border-radius:50%;background:var(--teal-light);color:var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;margin-top:1px}
+.feature-text-title{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.feature-text-desc{font-size:13px;color:var(--ink-2);line-height:1.6}
+.feature-screen{background:var(--white);border-radius:16px;border:1px solid var(--border);overflow:hidden;box-shadow:var(--shadow-lg)}
+.screen-titlebar{background:var(--ink);padding:12px 16px;display:flex;align-items:center;gap:8px}
+.screen-dots-wrap{display:flex;gap:5px}
+.screen-dot-r{width:10px;height:10px;border-radius:50%;background:#FF5F57}
+.screen-dot-y{width:10px;height:10px;border-radius:50%;background:#FEBC2E}
+.screen-dot-g{width:10px;height:10px;border-radius:50%;background:#28C840}
+.screen-title{font-size:11px;color:rgba(255,255,255,.4);flex:1;text-align:center}
+.screen-body{padding:16px}
+.pricing-row{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;margin-bottom:5px;background:var(--surface);font-size:12px}
+.pricing-row:nth-child(2){background:var(--teal-light)}
+.pricing-app{font-weight:600;color:var(--ink);flex:1}
+.pricing-cost{color:var(--ink-2);min-width:70px;text-align:right}
+.pricing-rec{font-size:10px;padding:2px 8px;border-radius:10px;font-weight:600}
+.rec-keep{background:var(--teal-light);color:var(--teal)}
+.rec-rep{background:var(--danger-light);color:var(--danger)}
+.rec-up{background:var(--amber-light);color:var(--amber)}
+.query-item{padding:10px 12px;border-radius:8px;border:1px solid var(--border);margin-bottom:6px}
+.query-title{font-size:12px;font-weight:600;color:var(--ink);margin-bottom:5px}
+.query-meta{display:flex;gap:5px;align-items:center}
+.q-badge{font-size:10px;padding:1px 7px;border-radius:10px;font-weight:600}
+.q-open{background:#EBF0FF;color:#1B4FD8}.q-prog{background:var(--amber-light);color:var(--amber)}.q-esc{background:var(--danger-light);color:var(--danger)}
+.q-pri-h{background:var(--danger-light);color:var(--danger)}.q-pri-m{background:var(--amber-light);color:var(--amber)}
+.wf-mini{display:flex;align-items:center;margin-top:7px}
+.wf-step-m{display:flex;flex-direction:column;align-items:center;flex:1}
+.wf-dot-m{width:16px;height:16px;border-radius:50%;border:1.5px solid #e2e8f0;background:#fff;font-size:8px;display:flex;align-items:center;justify-content:center;color:#94a3b8;font-weight:600;position:relative;z-index:1}
+.wf-dot-m.d{background:var(--teal);border-color:var(--teal);color:#fff}.wf-dot-m.a{background:#EBF0FF;border-color:#1B4FD8;color:#1B4FD8}
+.wf-line-m{flex:1;height:1.5px;background:#e2e8f0}.wf-line-m.d{background:var(--teal)}
+.tor-field{margin-bottom:10px}
+.tor-label{font-size:11px;color:var(--ink-3);margin-bottom:3px;font-weight:500}
+.tor-value{font-size:12px;color:var(--ink);background:var(--surface);border-radius:6px;padding:6px 10px;border:1px solid var(--border)}
+
+/* ── HOW IT WORKS ─────────────────────────────────────────────────────── */
+.how-section{background:var(--white)}
+.steps-track{position:relative;margin-top:56px}
+.steps-track::before{content:'';position:absolute;left:28px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,var(--gold) 10%,var(--gold) 90%,transparent);opacity:.3}
+.step-item{display:flex;gap:32px;margin-bottom:48px;position:relative}
+.step-num{width:56px;height:56px;border-radius:50%;background:var(--ink);color:var(--white);font-family:'Syne',sans-serif;font-size:20px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;border:3px solid var(--gold)}
+.step-body{padding-top:10px}
+.step-title{font-size:20px;font-weight:700;color:var(--ink);margin-bottom:8px}
+.step-desc{font-size:15px;color:var(--ink-2);line-height:1.7;max-width:500px}
+.step-time{display:inline-block;margin-top:10px;font-size:12px;font-weight:600;color:var(--gold);background:var(--gold-light);padding:4px 12px;border-radius:20px}
+
+/* ── PRICING ─────────────────────────────────────────────────────────── */
+.pricing-section{background:var(--ink);position:relative;overflow:hidden}
+.pricing-section::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.pricing-section .tag{background:rgba(200,146,42,.15);color:var(--gold);border:1px solid rgba(200,146,42,.3)}
+.pricing-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:48px;position:relative;z-index:1}
+.pricing-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius-lg);padding:36px;transition:all .25s}
+.pricing-card:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.2)}
+.pricing-card.featured{background:var(--white);border-color:var(--gold);box-shadow:0 0 0 3px rgba(200,146,42,.2),0 32px 64px rgba(0,0,0,.3)}
+.pricing-popular{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:var(--white);padding:4px 12px;border-radius:20px;margin-bottom:16px}
+.pricing-tier{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:rgba(255,255,255,.9);margin-bottom:4px}
+.pricing-card.featured .pricing-tier{color:var(--ink)}
+.pricing-price{font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;color:var(--white);line-height:1;margin:16px 0 4px}
+.pricing-card.featured .pricing-price{color:var(--ink)}
+.pricing-price .currency{font-size:1.4rem;vertical-align:super;margin-right:2px;font-weight:600;color:var(--gold)}
+.pricing-price .period{font-size:.9rem;color:rgba(255,255,255,.5);font-weight:400}
+.pricing-card.featured .pricing-price .period{color:var(--ink-2)}
+.pricing-sub{font-size:12px;color:rgba(255,255,255,.4);margin-bottom:24px}
+.pricing-card.featured .pricing-sub{color:var(--ink-3)}
+.pricing-divider{height:1px;background:rgba(255,255,255,.1);margin:24px 0}
+.pricing-card.featured .pricing-divider{background:var(--border)}
+.pricing-features-list{list-style:none;margin-bottom:28px}
+.pricing-features-list li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,.7);padding:6px 0}
+.pricing-card.featured .pricing-features-list li{color:var(--ink-2)}
+.pricing-features-list li .tick{color:var(--teal);font-size:14px;flex-shrink:0;margin-top:1px}
+.pricing-features-list li .cross{color:rgba(255,255,255,.2);font-size:14px;flex-shrink:0;margin-top:1px}
+.pricing-card.featured .pricing-features-list li .cross{color:var(--border)}
+.pricing-btn{width:100%;padding:14px;border-radius:50px;font-family:'Syne',sans-serif;font-size:14px;font-weight:700;cursor:pointer;border:1.5px solid rgba(255,255,255,.2);background:transparent;color:rgba(255,255,255,.8);transition:all .2s}
+.pricing-btn:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.4);color:var(--white)}
+.pricing-card.featured .pricing-btn{background:var(--gold);color:var(--white);border-color:var(--gold)}
+.pricing-card.featured .pricing-btn:hover{background:#b07d20;transform:translateY(-1px)}
+.pricing-note{text-align:center;font-size:13px;color:rgba(255,255,255,.35);margin-top:28px;position:relative;z-index:1}
+.pricing-addons{margin-top:64px;position:relative;z-index:1}
+.addons-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:24px}
+.addon-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:20px 24px;display:flex;align-items:center;gap:16px}
+.addon-icon{font-size:24px;flex-shrink:0}
+.addon-name{font-size:14px;font-weight:600;color:rgba(255,255,255,.8);margin-bottom:3px}
+.addon-price{font-size:13px;color:var(--gold);font-weight:600}
+.addon-desc{font-size:12px;color:rgba(255,255,255,.4);margin-top:2px}
+
+/* ── SOCIAL PROOF ─────────────────────────────────────────────────────── */
+.proof-section{background:var(--surface)}
+.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:48px}
+.proof-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;transition:all .25s}
+.proof-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px)}
+.proof-stars{color:var(--gold);font-size:16px;margin-bottom:14px;letter-spacing:2px}
+.proof-quote{font-size:15px;color:var(--ink);line-height:1.75;margin-bottom:20px;font-style:italic}
+.proof-author{display:flex;align-items:center;gap:12px}
+.proof-avatar{width:40px;height:40px;border-radius:50%;background:var(--ink);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--white);flex-shrink:0}
+.proof-name{font-size:14px;font-weight:600;color:var(--ink)}
+.proof-role{font-size:12px;color:var(--ink-3)}
+.proof-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:10px;background:var(--teal-light);color:var(--teal);margin-top:3px}
+
+/* ── COMPLIANCE ───────────────────────────────────────────────────────── */
+.compliance-section{background:var(--white)}
+.compliance-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:48px}
+.compliance-card{text-align:center;padding:32px 20px;border:1px solid var(--border);border-radius:var(--radius-lg);transition:all .25s}
+.compliance-card:hover{border-color:var(--gold);box-shadow:0 4px 24px rgba(200,146,42,.1)}
+.compliance-icon{font-size:36px;margin-bottom:14px}
+.compliance-name{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:6px}
+.compliance-desc{font-size:13px;color:var(--ink-2);line-height:1.6}
+
+/* ── CTA ──────────────────────────────────────────────────────────────── */
+.cta-section{background:var(--gold);position:relative;overflow:hidden;padding:100px 0}
+.cta-section::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%,rgba(255,255,255,.1) 0%,transparent 50%),radial-gradient(circle at 80% 50%,rgba(0,0,0,.1) 0%,transparent 50%)}
+.cta-inner{position:relative;z-index:1;text-align:center;max-width:640px;margin:0 auto}
+.cta-title{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;color:var(--white);line-height:1.1;margin-bottom:20px;letter-spacing:-.02em}
+.cta-desc{font-size:1.1rem;color:rgba(255,255,255,.8);line-height:1.7;margin-bottom:40px}
+.cta-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.cta-note{font-size:13px;color:rgba(255,255,255,.65);margin-top:20px}
+
+/* ── FOOTER ───────────────────────────────────────────────────────────── */
+footer{background:var(--ink);padding:64px 0 32px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:48px}
+.footer-brand-logo{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.footer-brand-mark{width:32px;height:32px;background:rgba(200,146,42,.2);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:13px;font-weight:800;color:var(--gold)}
+.footer-brand-name{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--white)}
+.footer-desc{font-size:13px;color:rgba(255,255,255,.4);line-height:1.7;max-width:280px;margin-bottom:20px}
+.footer-contact{font-size:13px;color:rgba(255,255,255,.5);line-height:1.8}
+.footer-contact a{color:rgba(255,255,255,.7);transition:color .2s}
+.footer-contact a:hover{color:var(--gold)}
+.footer-col-title{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:16px}
+.footer-links{list-style:none}
+.footer-links li{margin-bottom:10px}
+.footer-links a{font-size:13px;color:rgba(255,255,255,.5);transition:color .2s}
+.footer-links a:hover{color:var(--white)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:12px;color:rgba(255,255,255,.3)}
+.footer-legal{display:flex;gap:24px}
+.footer-legal a{font-size:12px;color:rgba(255,255,255,.3);transition:color .2s}
+.footer-legal a:hover{color:rgba(255,255,255,.6)}
+.footer-reg{margin-top:12px;font-size:11px;color:rgba(255,255,255,.2);max-width:280px;line-height:1.6}
+
+/* ── MODAL ────────────────────────────────────────────────────────────── */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(11,14,26,.7);backdrop-filter:blur(4px);z-index:200;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex}
+.modal{background:var(--white);border-radius:var(--radius-lg);padding:40px;max-width:480px;width:100%;box-shadow:0 32px 80px rgba(0,0,0,.3);position:relative;animation:modalIn .3s ease}
+@keyframes modalIn{from{opacity:0;transform:scale(.95) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.modal-close{position:absolute;top:16px;right:16px;background:none;border:none;font-size:20px;color:var(--ink-3);cursor:pointer;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:background .2s}
+.modal-close:hover{background:var(--surface)}
+.modal h3{font-size:22px;font-weight:800;color:var(--ink);margin-bottom:8px}
+.modal-sub{font-size:14px;color:var(--ink-2);margin-bottom:24px;line-height:1.6}
+.modal-plan{background:var(--surface);border-radius:var(--radius);padding:16px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between}
+.modal-plan-name{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--ink)}
+.modal-plan-price{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:var(--gold)}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:12px;font-weight:600;color:var(--ink-2);margin-bottom:5px;letter-spacing:.03em;text-transform:uppercase}
+.form-group input,.form-group select{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-size:14px;color:var(--ink);background:var(--white);transition:border-color .2s;outline:none}
+.form-group input:focus,.form-group select:focus{border-color:var(--gold)}
+.form-note{font-size:12px;color:var(--ink-3);margin-top:12px;line-height:1.6;text-align:center}
+.stripe-note{display:flex;align-items:center;justify-content:center;gap:6px;font-size:12px;color:var(--ink-3);margin-top:10px}
+.form-error{display:none;background:var(--danger-light);color:var(--danger);border:1px solid #f2caca;border-radius:10px;padding:10px 12px;font-size:12px;line-height:1.5;margin-bottom:14px}
+
+/* ── SCROLL ANIMATIONS ───────────────────────────────────────────────── */
+.reveal{opacity:0;transform:translateY(24px);transition:all .6s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+.reveal-delay-4{transition-delay:.4s}
+
+/* ── RESPONSIVE ──────────────────────────────────────────────────────── */
+@media(max-width:900px){
+  .grid-2,.feature-content.active{grid-template-columns:1fr}
+  .grid-3,.proof-grid,.pricing-cards,.compliance-grid{grid-template-columns:1fr}
+  .grid-4{grid-template-columns:1fr 1fr}
+  .problem-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .hero-screen{display:none}
+  .hero-stats{grid-template-columns:repeat(3,1fr)}
+  .addons-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .section{padding:64px 0}
+  .nav-links{display:none}
+  .hero-title{font-size:2.8rem}
+  .hero-stats{grid-template-columns:1fr}
+  .hero-stat+.hero-stat{border-left:none;border-top:1px solid rgba(255,255,255,.1);padding-left:0;padding-top:24px;margin-top:24px}
+  .grid-4,.footer-grid{grid-template-columns:1fr}
+  .pricing-cards{grid-template-columns:1fr}
+  .cta-actions{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ─────────────────────────────────────────────────────── -->
+<nav id="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <div class="nav-logo-mark">A</div>
+        <span class="nav-brand">ADC System</span>
+      </div>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#compliance">Compliance</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="nav-cta">
+        <a href="https://app.adcsystem.co.za" class="nav-login">Sign in →</a>
+        <a href="#pricing" class="btn btn-primary btn-sm" style="border-radius:50px;padding:10px 22px;font-size:13px">Subscribe</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ────────────────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-glow-2"></div>
+  </div>
+  <div class="container">
+    <div class="grid-2" style="align-items:center;gap:4rem">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <div class="hero-badge"><div class="hero-dot"></div>Purpose-built for South African government</div>
+        </div>
+        <h1 class="hero-title">
+          Your entire<br>
+          application portfolio.<br>
+          <span class="accent">Reviewed in a day.</span>
+        </h1>
+        <p class="hero-desc">
+          ADC is the <strong>only SaaS platform</strong> designed specifically for South African public sector ICT application due diligence. Rate, price, and report on every system you run — in one structured, audit-ready tool.
+        </p>
+        <div class="hero-actions">
+          <a href="#pricing" class="btn btn-gold btn-lg">Start free trial →</a>
+          <a href="#features" class="btn btn-outline btn-lg" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.2)">See all features</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-num">9<span class="unit">+</span></div>
+            <div class="hero-stat-label">Business domains covered</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">4<span class="unit">×</span></div>
+            <div class="hero-stat-label">Faster than Excel reviews</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">100<span class="unit">%</span></div>
+            <div class="hero-stat-label">POPIA compliant</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HERO VISUAL — mini app mockup -->
+      <div class="hero-visual">
+        <div class="hero-screen">
+          <div class="hero-screen-bar">
+            <div class="hero-screen-dots">
+              <div class="hero-screen-dot" style="background:#FF5F57"></div>
+              <div class="hero-screen-dot" style="background:#FEBC2E"></div>
+              <div class="hero-screen-dot" style="background:#28C840"></div>
+            </div>
+            <div class="hero-screen-url">app.adcsystem.co.za</div>
+          </div>
+          <div class="mock-topbar">
+            <div class="mock-logo">A</div>
+            <div class="mock-orgname">Eastern Cape Dept of Health — ADC</div>
+            <div class="mock-tabs">
+              <div class="mock-tab active">Canvas</div>
+              <div class="mock-tab">Pricing</div>
+              <div class="mock-tab">Reports</div>
+            </div>
+          </div>
+          <div class="mock-grid">
+            <div class="mock-cell">
+              <div class="mock-cell-name">Finance &amp; Accounting <span class="mock-badge mock-badge-g">4.1</span></div>
+              <div class="mock-chip"><span>SAP FI</span><span class="s-g">4.2</span></div>
+              <div class="mock-chip"><span>Pastel Payroll</span><span class="s-g">3.8</span></div>
+              <div class="mock-chip"><span>BAS</span><span class="s-g">4.3</span></div>
+              <div class="mock-progbar"><div class="mock-progfill" style="width:100%"></div></div>
+            </div>
+            <div class="mock-cell">
+              <div class="mock-cell-name">Human Resources <span class="mock-badge mock-badge-a">2.9</span></div>
+              <div class="mock-chip"><span>PERSAL</span><span class="s-a">3.1</span></div>
+              <div class="mock-chip"><span>ESS Portal</span><span class="s-a">2.4</span></div>
+              <div class="mock-progbar"><div class="mock-progfill" style="width:66%"></div></div>
+            </div>
+            <div class="mock-cell">
+              <div class="mock-cell-name">Operations <span class="mock-badge mock-badge-r">1.8</span></div>
+              <div class="mock-chip"><span>Legacy PIMS</span><span class="s-r">1.8</span></div>
+              <div class="mock-progbar"><div class="mock-progfill" style="width:100%;background:#D94040"></div></div>
+            </div>
+            <div class="mock-cell">
+              <div class="mock-cell-name">IT Infrastructure <span class="mock-badge mock-badge-g">4.4</span></div>
+              <div class="mock-chip"><span>Active Directory</span><span class="s-g">4.6</span></div>
+              <div class="mock-chip"><span>SIEM</span><span class="s-g">4.2</span></div>
+              <div class="mock-progbar"><div class="mock-progfill" style="width:100%"></div></div>
+            </div>
+            <div class="mock-cell">
+              <div class="mock-cell-name">Customer Mgmt <span class="mock-badge mock-badge-a">3.2</span></div>
+              <div class="mock-chip"><span>CRM360</span><span class="s-a">3.5</span></div>
+              <div class="mock-chip"><span>Service Desk</span><span class="s-a">2.9</span></div>
+              <div class="mock-progbar"><div class="mock-progfill" style="width:100%;background:#BA7517"></div></div>
+            </div>
+            <div class="mock-cell">
+              <div class="mock-cell-name">Analytics &amp; BI <span class="mock-badge" style="background:rgba(255,255,255,.08);color:rgba(255,255,255,.3)">–</span></div>
+              <div style="font-size:8px;color:rgba(255,255,255,.2);margin-top:6px;font-style:italic">No applications yet</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TRUST BAR ──────────────────────────────────────────────────────── -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-label">Designed for South African public sector institutions</div>
+    <div class="trust-logos">
+      <div class="trust-logo">Provincial Departments</div>
+      <div class="trust-logo">•</div>
+      <div class="trust-logo">Municipalities</div>
+      <div class="trust-logo">•</div>
+      <div class="trust-logo">National Departments</div>
+      <div class="trust-logo">•</div>
+      <div class="trust-logo">State-Owned Entities</div>
+      <div class="trust-logo">•</div>
+      <div class="trust-logo">ICT Consulting Firms</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── PROBLEM ─────────────────────────────────────────────────────────── -->
+<section class="section problem-section" id="problem">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="tag" style="background:var(--danger-light);color:var(--danger)">The Problem</span>
+      <h2 style="font-size:clamp(2rem,4vw,2.8rem);font-weight:800;color:var(--ink);margin-top:16px;margin-bottom:12px;letter-spacing:-.02em">
+        Every year, the Auditor-General flags the same ICT failures
+      </h2>
+      <p style="font-size:1rem;color:var(--ink-2);max-width:560px;margin:0 auto;line-height:1.75">
+        Government departments spend billions on applications with no structured process to evaluate their value, cost, or risk. The tools don't exist — until now.
+      </p>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card reveal reveal-delay-1">
+        <div class="problem-icon">📊</div>
+        <div class="problem-title">Spreadsheet chaos</div>
+        <div class="problem-desc">Application inventories live in disconnected Excel files that are out of date the moment they're saved, with no collaboration or workflow tracking.</div>
+      </div>
+      <div class="problem-card reveal reveal-delay-2">
+        <div class="problem-icon">💸</div>
+        <div class="problem-title">Untracked spending</div>
+        <div class="problem-desc">Departments cannot account for total cost of ownership across their portfolio. Licence, maintenance, and implementation costs are siloed across multiple budget lines.</div>
+      </div>
+      <div class="problem-card reveal reveal-delay-3">
+        <div class="problem-icon">🔍</div>
+        <div class="problem-title">Audit exposure</div>
+        <div class="problem-desc">Without a formal due diligence process and documented evidence, ICT portfolio decisions cannot withstand AG scrutiny under PFMA and MFMA requirements.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURES ────────────────────────────────────────────────────────── -->
+<section class="section features-section" id="features">
+  <div class="container">
+    <div class="text-center reveal mb-12">
+      <span class="tag tag-teal">Platform Features</span>
+      <h2 style="font-size:clamp(2rem,4vw,2.8rem);font-weight:800;color:var(--ink);margin-top:16px;margin-bottom:12px;letter-spacing:-.02em">
+        Everything you need.<br>Nothing you don't.
+      </h2>
+      <p style="font-size:1rem;color:var(--ink-2);max-width:560px;margin:0 auto;line-height:1.75">
+        Six modules that take you from zero to a boardroom-ready due diligence report — in one working day.
+      </p>
+    </div>
+    <div class="feature-tabs reveal">
+      <button class="feature-tab active" onclick="showFeature('canvas',this)">Canvas</button>
+      <button class="feature-tab" onclick="showFeature('pricing',this)">Pricing</button>
+      <button class="feature-tab" onclick="showFeature('queries',this)">Queries</button>
+      <button class="feature-tab" onclick="showFeature('tor',this)">Terms of Reference</button>
+      <button class="feature-tab" onclick="showFeature('reports',this)">Reports</button>
+      <button class="feature-tab" onclick="showFeature('ai',this)">AI Analysis</button>
+    </div>
+
+    <!-- Canvas -->
+    <div class="feature-content active" id="feat-canvas">
+      <div>
+        <h3 style="font-size:1.8rem;font-weight:800;color:var(--ink);margin-bottom:16px;letter-spacing:-.02em">The Application Canvas</h3>
+        <p style="font-size:14px;color:var(--ink-2);line-height:1.75;margin-bottom:24px">Map every application across 9 configurable business domains using a Business Model Canvas-style grid. Rate each against up to 8 custom criteria using a 1–5 star system.</p>
+        <ul class="feature-list">
+          <li><div class="feature-check">✓</div><div><div class="feature-text-title">9 default business domains</div><div class="feature-text-desc">Finance, HR, Operations, IT, Compliance and more — fully renameable and configurable</div></div></li>
+          <li><div class="feature-check">✓</div><div><div class="feature-text-title">1–5 star rating per criterion</div><div class="feature-text-desc">Business Fit, Technical Health, Cost Efficiency, and Risk Level — weights configurable</div></div></li>
+          <li><div class="feature-check">✓</div><div><div class="feature-text-title">Real-time portfolio score</div><div class="feature-text-desc">Weighted average across all rated applications displayed in the header stats bar</div></div></li>
+          <li><div class="feature-check">✓</div><div><div class="feature-text-title">Green / Amber / Red status badges</div><div class="feature-text-desc">Instant visual classification — Adequate (3.5+), Review (2.0–3.4), Critical (below 2.0)</div></div></li>
+        </ul>
+      </div>
+      <div class="feature-screen">
+        <div class="screen-titlebar"><div class="screen-dots-wrap"><div class="screen-dot-r"></div><div class="screen-dot-y"></div><div class="screen-dot-g"></div></div><div class="screen-title">Canvas — Application Grid</div></div>
+        <div class="screen-body">
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px">
+            <div style="background:var(--surface);border-radius:8px;padding:10px;border:1px solid var(--border)"><div style="font-size:11px;font-weight:700;color:var(--ink);margin-bottom:6px;display:flex;justify-content:space-between">Finance<span style="background:var(--teal-light);color:var(--teal);font-size:9px;padding:1px 6px;border-radius:8px">4.1</span></div><div style="font-size:10px;background:var(--teal-light);border-radius:4px;padding:2px 6px;margin-bottom:2px;display:flex;justify-content:space-between"><span>SAP FI</span><span style="color:var(--teal);font-weight:600">4.2</span></div><div style="font-size:10px;background:var(--surface);border-radius:4px;padding:2px 6px;display:flex;justify-content:space-between"><span>BAS</span><span style="color:var(--teal);font-weight:600">4.3</span></div><div style="height:2px;background:#e2e8f0;border-radius:1px;margin-top:6px;overflow:hidden"><div style="height:100%;width:100%;background:var(--teal);border-radius:1px"></div></div></div>
+            <div style="background:var(--surface);border-radius:8px;padding:10px;border:1px solid var(--border)"><div style="font-size:11px;font-weight:700;color:var(--ink);margin-bottom:6px;display:flex;justify-content:space-between">HR<span style="background:var(--amber-light);color:var(--amber);font-size:9px;padding:1px 6px;border-radius:8px">2.9</span></div><div style="font-size:10px;background:var(--surface);border-radius:4px;padding:2px 6px;margin-bottom:2px;display:flex;justify-content:space-between"><span>PERSAL</span><span style="color:var(--amber);font-weight:600">3.1</span></div><div style="font-size:10px;background:var(--surface);border-radius:4px;padding:2px 6px;display:flex;justify-content:space-between"><span>ESS Portal</span><span style="color:var(--amber);font-weight:600">2.4</span></div><div style="height:2px;background:#e2e8f0;border-radius:1px;margin-top:6px;overflow:hidden"><div style="height:100%;width:66%;background:var(--amber);border-radius:1px"></div></div></div>
+            <div style="background:var(--surface);border-radius:8px;padding:10px;border:1px solid var(--border)"><div style="font-size:11px;font-weight:700;color:var(--ink);margin-bottom:6px;display:flex;justify-content:space-between">Operations<span style="background:var(--danger-light);color:var(--danger);font-size:9px;padding:1px 6px;border-radius:8px">1.8</span></div><div style="font-size:10px;background:var(--surface);border-radius:4px;padding:2px 6px;margin-bottom:2px;display:flex;justify-content:space-between"><span>Legacy PIMS</span><span style="color:var(--danger);font-weight:600">1.8</span></div><div style="height:2px;background:#e2e8f0;border-radius:1px;margin-top:6px;overflow:hidden"><div style="height:100%;width:36%;background:var(--danger);border-radius:1px"></div></div></div>
+          </div>
+          <div style="margin-top:12px;display:flex;gap:6px">
+            <div style="background:var(--teal-light);border-radius:8px;padding:8px 10px;font-size:10px;flex:1"><div style="font-weight:700;color:var(--teal);margin-bottom:2px">Portfolio Score</div><div style="font-size:16px;font-weight:800;color:var(--teal)">3.4/5</div></div>
+            <div style="background:var(--surface);border-radius:8px;padding:8px 10px;font-size:10px;flex:1;border:1px solid var(--border)"><div style="font-weight:600;color:var(--ink-3);margin-bottom:2px">Rated</div><div style="font-size:16px;font-weight:800;color:var(--ink)">18/24</div></div>
+            <div style="background:var(--danger-light);border-radius:8px;padding:8px 10px;font-size:10px;flex:1"><div style="font-weight:700;color:var(--danger);margin-bottom:2px">Critical</div><div style="font-size:16px;font-weight:800;color:var(--danger)">3 apps</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pricing -->
+    <div class="feature-content" id="feat-pricing">
+      <div>
+        <h3 style="font-size:1.8rem;font-weight:800;color:var(--ink);margin-bottom:16px;letter-spacing:-.02em">Pricing & TCO Management</h3>
+        <p style="font-size:14px;color:var(--ink-2);line-height:1.75;margin-bottom:24px">Capture the full cost of every application — licence, maintenance, and implementation. Get instant portfolio TCO totals and set a disposal recommendation for each system.</p>
+        <ul class="feature-list">
+          <li><div class="feature-check">✓</div><div><div class="feature-text-title">Three-component cost capture</div><div class="feature-text-desc">Licence, annual maintenance, and once-off implementation costs per application</div></div></li>
+          <li><div class="feature-check">✓</div><div><div class="feature-text-title">Automatic TCO calculation</div><div class="feature-text-desc">Total cost of ownership calculated and summed across the full portfolio instantly</div></div></li>
+          <li><div class="feature-check">✓</div><div><div class="feature-text-title">Disposal recommendations</div><div class="feature-text-desc">Keep, Upgrade, Replace, Retire, or Review — per application, per analyst</div></div></li>
+          <li><div class="feature-check">✓</div><div><div class="feature-text-title">Export to Excel</div><div class="feature-text-desc">One-click .xlsx export with formatted cost tables and recommendations sheet</div></div></li>
+        </ul>
+      </div>
+      <div class="feature-screen">
+        <div class="screen-titlebar"><div class="screen-dots-wrap"><div class="screen-dot-r"></div><div class="screen-dot-y"></div><div class="screen-dot-g"></div></div><div class="screen-title">Pricing — TCO Management</div></div>
+        <div class="screen-body">
+          <div class="pricing-row" style="background:var(--ink);color:white;font-size:10px;font-weight:600">
+            <span style="flex:1">Application</span><span style="min-width:70px;text-align:right;color:rgba(255,255,255,.6)">TCO</span><span style="min-width:60px;text-align:right">Rec.</span>
+          </div>
+          <div class="pricing-row"><span class="pricing-app">SAP FI</span><span class="pricing-cost">R 826,000</span><span class="pricing-rec rec-keep">Keep</span></div>
+          <div class="pricing-row"><span class="pricing-app">PERSAL</span><span class="pricing-cost">R 32,000</span><span class="pricing-rec rec-up">Review</span></div>
+          <div class="pricing-row"><span class="pricing-app">Legacy PIMS</span><span class="pricing-cost">R 168,000</span><span class="pricing-rec rec-rep">Replace</span></div>
+          <div class="pricing-row"><span class="pricing-app">CRM360</span><span class="pricing-cost">R 154,000</span><span class="pricing-rec rec-up">Upgrade</span></div>
+          <div class="pricing-row" style="background:var(--teal-light);font-weight:700"><span class="pricing-app" style="color:var(--teal)">Portfolio TCO</span><span class="pricing-cost" style="color:var(--teal)">R 1,180,000</span><span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Queries -->
+    <div class="feature-content" id="feat-queries">
+      <div>
+        <h3 style="font-size:1.8rem;font-weight:800;color:var(--ink);margin-bottom:16px;letter-spacing:-.02em">5-Step Query Workflow</h3>
+        <p style="font-size:14px;color:var(--ink-2);line-height:1.75;margin-bottom:24px">Raise, track, and resolve every issue that emerges during the review through a structured workflow. Full response thread, timestamps, and audit trail built in.</p>
+        <ul class="feature-list">
+          <li><div class="feature-check">✓</div><div><div class="feature-text-title">Submitted → Closed workflow</div><div class="feature-text-desc">5 defined steps: Submitted, Acknowledged, Under Review, Response Issued, Closed</div></div></li>
+          <li><div class="feature-check">✓</div><div><div class="feature-text-title">Priority and category tagging</div><div class="feature-text-desc">High/Medium/Low priority with Pricing, Technical, Compliance, Functional, Contract categories</div></div></li>
+          <li><div class="feature-check">✓</div><div><div class="feature-text-title">Threaded response log</div><div class="feature-text-desc">Every response is timestamped with the responder name — full audit trail for AG review</div></div></li>
+          <li><div class="feature-check">✓</div><div><div class="feature-text-title">Link to applications</div><div class="feature-text-desc">Attach queries directly to the application they relate to for context in reports</div></div></li>
+        </ul>
+      </div>
+      <div class="feature-screen">
+        <div class="screen-titlebar"><div class="screen-dots-wrap"><div class="screen-dot-r"></div><div class="screen-dot-y"></div><div class="screen-dot-g"></div></div><div class="screen-title">Queries — Issue Workflow</div></div>
+        <div class="screen-body">
+          <div class="query-item">
+            <div class="query-title">Legacy PIMS — licence expiry date unclear</div>
+            <div class="query-meta"><span class="q-badge q-esc">Escalated</span><span class="q-badge q-pri-h">High</span><span style="font-size:10px;color:var(--ink-3)">→ Mr. S. Botha · Due 2026-05-10</span></div>
+            <div class="wf-mini">
+              <div class="wf-step-m"><div class="wf-dot-m d">✓</div></div><div class="wf-line-m d"></div>
+              <div class="wf-step-m"><div class="wf-dot-m d">✓</div></div><div class="wf-line-m d"></div>
+              <div class="wf-step-m"><div class="wf-dot-m d">✓</div></div><div class="wf-line-m"></div>
+              <div class="wf-step-m"><div class="wf-dot-m a">4</div></div><div class="wf-line-m"></div>
+              <div class="wf-step-m"><div class="wf-dot-m">5</div></div>
+            </div>
+          </div>
+          <div class="query-item">
+            <div class="query-title">ESS Portal — iOS Safari login failures</div>
+            <div class="query-meta"><span class="q-badge q-prog">In Progress</span><span class="q-badge q-pri-m">Medium</span><span style="font-size:10px;color:var(--ink-3)">→ Ms. L. Dlamini</span></div>
+            <div class="wf-mini">
+              <div class="wf-step-m"><div class="wf-dot-m d">✓</div></div><div class="wf-line-m d"></div>
+              <div class="wf-step-m"><div class="wf-dot-m d">✓</div></div><div class="wf-line-m"></div>
+              <div class="wf-step-m"><div class="wf-dot-m a">3</div></div><div class="wf-line-m"></div>
+              <div class="wf-step-m"><div class="wf-dot-m">4</div></div><div class="wf-line-m"></div>
+              <div class="wf-step-m"><div class="wf-dot-m">5</div></div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;margin-top:10px">
+            <div style="background:var(--blue-light);border-radius:8px;padding:8px 10px;font-size:10px;flex:1;text-align:center"><div style="font-weight:700;color:var(--blue);font-size:16px">4</div><div style="color:var(--blue)">Open</div></div>
+            <div style="background:var(--amber-light);border-radius:8px;padding:8px 10px;font-size:10px;flex:1;text-align:center"><div style="font-weight:700;color:var(--amber);font-size:16px">1</div><div style="color:var(--amber)">Escalated</div></div>
+            <div style="background:var(--teal-light);border-radius:8px;padding:8px 10px;font-size:10px;flex:1;text-align:center"><div style="font-weight:700;color:var(--teal);font-size:16px">7</div><div style="color:var(--teal)">Resolved</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOR -->
+    <div class="feature-content" id="feat-tor">
+      <div>
+        <h3 style="font-size:1.8rem;font-weight:800;color:var(--ink);margin-bottom:16px;letter-spacing:-.02em">Terms of Reference Builder</h3>
+        <p style="font-size:14px;color:var(--ink-2);line-height:1.75;margin-bottom:24px">Generate a formal, signable Terms of Reference document directly in the system. All standard government TOR sections included — export to PDF in one click.</p>
+        <ul class="feature-list">
+          <li><div class="feature-check">✓</div><div><div class="feature-text-title">9 standard TOR sections</div><div class="feature-text-desc">Project identification, background, objectives, scope, methodology, deliverables, governance</div></div></li>
+          <li><div class="feature-check">✓</div><div><div class="feature-text-title">Dynamic deliverables and stakeholders</div><div class="feature-text-desc">Add as many deliverables (with due dates) and stakeholders (with roles) as needed</div></div></li>
+          <li><div class="feature-check">✓</div><div><div class="feature-text-title">One-click PDF export</div><div class="feature-text-desc">Print-ready PDF with signature blocks — suitable for official government approval</div></div></li>
+          <li><div class="feature-check">✓</div><div><div class="feature-text-title">AI-assisted drafting</div><div class="feature-text-desc">Claude AI generates a complete draft TOR from your project data in seconds</div></div></li>
+        </ul>
+      </div>
+      <div class="feature-screen">
+        <div class="screen-titlebar"><div class="screen-dots-wrap"><div class="screen-dot-r"></div><div class="screen-dot-y"></div><div class="screen-dot-g"></div></div><div class="screen-title">Terms of Reference Builder</div></div>
+        <div class="screen-body">
+          <div class="tor-field"><div class="tor-label">Project Title</div><div class="tor-value">Application Portfolio Due Diligence Review 2025/26</div></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <div class="tor-field"><div class="tor-label">Project Sponsor</div><div class="tor-value">DDG: Corporate Services</div></div>
+            <div class="tor-field"><div class="tor-label">Budget</div><div class="tor-value">R 180,000</div></div>
+          </div>
+          <div class="tor-field"><div class="tor-label">Deliverables</div>
+            <div style="font-size:11px;background:var(--surface);border-radius:6px;padding:6px 10px;border:1px solid var(--border)">
+              <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid var(--border)"><span>Due Diligence Report</span><span style="color:var(--ink-3)">2026-07-15</span></div>
+              <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid var(--border)"><span>Application Inventory</span><span style="color:var(--ink-3)">2026-06-30</span></div>
+              <div style="display:flex;justify-content:space-between;padding:3px 0"><span>Executive Summary</span><span style="color:var(--ink-3)">2026-07-31</span></div>
+            </div>
+          </div>
+          <div style="display:flex;gap:6px;margin-top:6px">
+            <button style="flex:1;padding:8px;background:var(--ink);color:white;border:none;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer">💾 Save TOR</button>
+            <button style="flex:1;padding:8px;background:var(--gold);color:white;border:none;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer">📄 Export PDF</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reports -->
+    <div class="feature-content" id="feat-reports">
+      <div>
+        <h3 style="font-size:1.8rem;font-weight:800;color:var(--ink);margin-bottom:16px;letter-spacing:-.02em">Portfolio Reports & Exports</h3>
+        <p style="font-size:14px;color:var(--ink-2);line-height:1.75;margin-bottom:24px">Generate a consolidated portfolio report with domain overview, full application table, open queries summary, and bar charts — ready for executive presentation or AG submission.</p>
+        <ul class="feature-list">
+          <li><div class="feature-check">✓</div><div><div class="feature-text-title">Domain overview with bar chart</div><div class="feature-text-desc">Visual score comparison across all business domains with Adequate/Review/Critical status</div></div></li>
+          <li><div class="feature-check">✓</div><div><div class="feature-text-title">Full applications table</div><div class="feature-text-desc">Every application with all criterion scores, average, TCO, and recommendation in one view</div></div></li>
+          <li><div class="feature-check">✓</div><div><div class="feature-text-title">Export to PDF and Excel</div><div class="feature-text-desc">PDF for presentation and approval. Excel for further analysis with multiple worksheets</div></div></li>
+          <li><div class="feature-check">✓</div><div><div class="feature-text-title">Open queries included</div><div class="feature-text-desc">All unresolved queries appear in the report — full accountability chain for management</div></div></li>
+        </ul>
+      </div>
+      <div class="feature-screen">
+        <div class="screen-titlebar"><div class="screen-dots-wrap"><div class="screen-dot-r"></div><div class="screen-dot-y"></div><div class="screen-dot-g"></div></div><div class="screen-title">Portfolio Report</div></div>
+        <div class="screen-body">
+          <div style="margin-bottom:10px">
+            <div style="font-size:10px;font-weight:600;color:var(--ink-3);margin-bottom:6px;text-transform:uppercase;letter-spacing:.08em">Domain Overview</div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <div style="display:flex;align-items:center;gap:6px"><span style="font-size:10px;width:80px;color:var(--ink);font-weight:600">Finance</span><div style="flex:1;height:8px;background:var(--surface);border-radius:4px;overflow:hidden"><div style="height:100%;width:82%;background:var(--teal);border-radius:4px"></div></div><span style="font-size:10px;font-weight:600;color:var(--teal);width:28px;text-align:right">4.1</span></div>
+              <div style="display:flex;align-items:center;gap:6px"><span style="font-size:10px;width:80px;color:var(--ink);font-weight:600">IT Infra</span><div style="flex:1;height:8px;background:var(--surface);border-radius:4px;overflow:hidden"><div style="height:100%;width:88%;background:var(--teal);border-radius:4px"></div></div><span style="font-size:10px;font-weight:600;color:var(--teal);width:28px;text-align:right">4.4</span></div>
+              <div style="display:flex;align-items:center;gap:6px"><span style="font-size:10px;width:80px;color:var(--ink);font-weight:600">HR</span><div style="flex:1;height:8px;background:var(--surface);border-radius:4px;overflow:hidden"><div style="height:100%;width:58%;background:var(--amber);border-radius:4px"></div></div><span style="font-size:10px;font-weight:600;color:var(--amber);width:28px;text-align:right">2.9</span></div>
+              <div style="display:flex;align-items:center;gap:6px"><span style="font-size:10px;width:80px;color:var(--ink);font-weight:600">Operations</span><div style="flex:1;height:8px;background:var(--surface);border-radius:4px;overflow:hidden"><div style="height:100%;width:36%;background:var(--danger);border-radius:4px"></div></div><span style="font-size:10px;font-weight:600;color:var(--danger);width:28px;text-align:right">1.8</span></div>
+            </div>
+          </div>
+          <div style="display:flex;gap:6px">
+            <button style="flex:1;padding:7px;background:var(--gold);color:white;border:none;border-radius:6px;font-size:10px;font-weight:600;cursor:pointer">📊 Export Excel</button>
+            <button style="flex:1;padding:7px;background:var(--ink);color:white;border:none;border-radius:6px;font-size:10px;font-weight:600;cursor:pointer">📄 Export PDF</button>
+            <button style="flex:1;padding:7px;background:var(--blue-light);color:var(--blue);border:none;border-radius:6px;font-size:10px;font-weight:600;cursor:pointer">🤖 AI Analysis</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI -->
+    <div class="feature-content" id="feat-ai">
+      <div>
+        <h3 style="font-size:1.8rem;font-weight:800;color:var(--ink);margin-bottom:16px;letter-spacing:-.02em">AI-Powered Analysis</h3>
+        <p style="font-size:14px;color:var(--ink-2);line-height:1.75;margin-bottom:24px">Powered by Anthropic's Claude — the same AI behind leading enterprise tools. Submit your portfolio data and receive a professionally written due diligence analysis in seconds.</p>
+        <ul class="feature-list">
+          <li><div class="feature-check">✓</div><div><div class="feature-text-title">Portfolio health narrative</div><div class="feature-text-desc">Executive summary, domain analysis, and key findings in professional government language</div></div></li>
+          <li><div class="feature-check">✓</div><div><div class="feature-text-title">Prioritised recommendations</div><div class="feature-text-desc">Numbered action list targeting lowest-scoring and highest-cost applications first</div></div></li>
+          <li><div class="feature-check">✓</div><div><div class="feature-text-title">TOR document generation</div><div class="feature-text-desc">AI drafts your full Terms of Reference from your project data — edit and export to PDF</div></div></li>
+          <li><div class="feature-check">✓</div><div><div class="feature-text-title">No personal data sent to AI</div><div class="feature-text-desc">Only aggregated scores and application names are submitted — POPIA compliant by design</div></div></li>
+        </ul>
+      </div>
+      <div class="feature-screen">
+        <div class="screen-titlebar"><div class="screen-dots-wrap"><div class="screen-dot-r"></div><div class="screen-dot-y"></div><div class="screen-dot-g"></div></div><div class="screen-title">AI Portfolio Analysis</div></div>
+        <div class="screen-body">
+          <div style="background:var(--blue-light);border-radius:8px;padding:10px 12px;margin-bottom:10px">
+            <div style="font-size:10px;font-weight:700;color:var(--blue);margin-bottom:4px">🤖 AI Analysis — Executive Summary</div>
+            <div style="font-size:11px;color:var(--ink-2);line-height:1.6">The Eastern Cape Department of Health portfolio shows a mixed health profile with 3 of 9 domains rated adequate. IT Infrastructure (4.4) and Finance (4.1) are performing well, while Operations requires urgent attention...</div>
+          </div>
+          <div style="font-size:10px;font-weight:600;color:var(--ink-3);margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em">Prioritised Recommendations</div>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <div style="display:flex;gap:6px;align-items:flex-start;font-size:11px"><span style="background:var(--danger-light);color:var(--danger);width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;flex-shrink:0;margin-top:1px">1</span><span style="color:var(--ink-2)">Replace Legacy PIMS immediately — score 1.8/5, active security risk</span></div>
+            <div style="display:flex;gap:6px;align-items:flex-start;font-size:11px"><span style="background:var(--amber-light);color:var(--amber);width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;flex-shrink:0;margin-top:1px">2</span><span style="color:var(--ink-2)">Upgrade ESS Portal — mobile access failure affecting 40% of HR staff</span></div>
+            <div style="display:flex;gap:6px;align-items:flex-start;font-size:11px"><span style="background:var(--teal-light);color:var(--teal);width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;flex-shrink:0;margin-top:1px">3</span><span style="color:var(--ink-2)">Retain SAP FI — highest scored system, good value at R826,000 TCO</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ─────────────────────────────────────────────────────── -->
+<section class="section how-section" id="how-it-works">
+  <div class="container">
+    <div class="text-center reveal mb-12">
+      <span class="tag tag-blue">How It Works</span>
+      <h2 style="font-size:clamp(2rem,4vw,2.8rem);font-weight:800;color:var(--ink);margin-top:16px;margin-bottom:12px;letter-spacing:-.02em">
+        From zero to boardroom-ready<br>in five steps
+      </h2>
+    </div>
+    <div class="grid-2" style="gap:5rem;align-items:flex-start">
+      <div class="steps-track">
+        <div class="step-item reveal">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <div class="step-title">Subscribe and configure</div>
+            <div class="step-desc">Choose your plan, subscribe online, and receive instant access. Set your organisation name, logo, and configure your 9 business domain labels to match your department's structure.</div>
+            <div class="step-time">⏱ 15 minutes</div>
+          </div>
+        </div>
+        <div class="step-item reveal reveal-delay-1">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <div class="step-title">Load your application inventory</div>
+            <div class="step-desc">Add each application to its business domain — name, vendor, and notes. Import from your existing spreadsheet or add manually. No technical skills required.</div>
+            <div class="step-time">⏱ 1–2 hours</div>
+          </div>
+        </div>
+        <div class="step-item reveal reveal-delay-2">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <div class="step-title">Rate and price each application</div>
+            <div class="step-desc">Score every application against 4 criteria (1–5 stars). Capture TCO — licence, maintenance, and implementation costs. Assign a Keep / Upgrade / Replace / Retire recommendation.</div>
+            <div class="step-time">⏱ 2–4 hours</div>
+          </div>
+        </div>
+        <div class="step-item reveal reveal-delay-3">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <div class="step-title">Manage queries and issues</div>
+            <div class="step-desc">Log any queries that arise during the review — vendor queries, technical issues, contract questions. Track each through the 5-step workflow with a full response thread.</div>
+            <div class="step-time">⏱ Ongoing</div>
+          </div>
+        </div>
+        <div class="step-item reveal reveal-delay-4">
+          <div class="step-num">5</div>
+          <div class="step-body">
+            <div class="step-title">Generate your report</div>
+            <div class="step-desc">Export a professional PDF or Excel portfolio report. Use the AI Analysis feature to generate a written narrative with prioritised recommendations. Submit to management or the AG.</div>
+            <div class="step-time">⏱ 30 minutes</div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal" style="position:sticky;top:120px">
+        <div style="background:var(--surface);border-radius:var(--radius-lg);padding:32px;border:1px solid var(--border)">
+          <div class="tag tag-teal mb-4">Total time from start to report</div>
+          <div style="font-family:'Syne',sans-serif;font-size:4rem;font-weight:800;color:var(--ink);line-height:1;margin-bottom:8px">1 day</div>
+          <div style="font-size:15px;color:var(--ink-2);line-height:1.7;margin-bottom:24px">A typical department with 20–30 applications can complete a full due diligence review — canvas, pricing, TOR, queries, and report — in a single working day.</div>
+          <div style="border-top:1px solid var(--border);padding-top:20px">
+            <div style="font-size:13px;font-weight:600;color:var(--ink-3);margin-bottom:12px;letter-spacing:.06em;text-transform:uppercase">Compared to traditional Excel approach:</div>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px"><div style="font-size:11px;color:var(--danger);font-weight:600;width:24px">✗</div><div style="font-size:13px;color:var(--ink-2)">2–6 weeks of spreadsheet work</div></div>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px"><div style="font-size:11px;color:var(--danger);font-weight:600;width:24px">✗</div><div style="font-size:13px;color:var(--ink-2)">No workflow or query tracking</div></div>
+            <div style="display:flex;align-items:center;gap:10px"><div style="font-size:11px;color:var(--danger);font-weight:600;width:24px">✗</div><div style="font-size:13px;color:var(--ink-2)">No audit trail for AG submission</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRICING ─────────────────────────────────────────────────────────── -->
+<section class="section pricing-section" id="pricing">
+  <div class="container">
+    <div class="text-center reveal mb-12">
+      <span class="tag">Pricing</span>
+      <h2 style="font-size:clamp(2rem,4vw,2.8rem);font-weight:800;color:var(--white);margin-top:16px;margin-bottom:12px;letter-spacing:-.02em">
+        Simple, transparent pricing
+      </h2>
+      <p style="font-size:1rem;color:rgba(255,255,255,.5);max-width:500px;margin:0 auto;line-height:1.75">
+        All plans are billed annually. Starter and Professional fall below the R 500,000 procurement threshold — no formal tender required at most institutions.
+      </p>
+    </div>
+
+    <div class="pricing-cards">
+      <!-- Starter -->
+      <div class="pricing-card reveal reveal-delay-1">
+        <div class="pricing-tier">Starter</div>
+        <div class="pricing-price"><span class="currency">R</span>3,500<span class="period">/month</span></div>
+        <div class="pricing-sub">Billed annually — R 42,000/year</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features-list">
+          <li><span class="tick">✓</span>Up to 5 users</li>
+          <li><span class="tick">✓</span>Up to 50 applications</li>
+          <li><span class="tick">✓</span>Canvas + scoring module</li>
+          <li><span class="tick">✓</span>Pricing & TCO capture</li>
+          <li><span class="tick">✓</span>Query workflow (5-step)</li>
+          <li><span class="tick">✓</span>PDF & Excel export</li>
+          <li><span class="cross">✗</span>Terms of Reference module</li>
+          <li><span class="cross">✗</span>AI analysis</li>
+          <li><span class="cross">✗</span>Custom branding</li>
+        </ul>
+        <button class="pricing-btn" onclick="openModal('Starter','R 3,500/month')">Get started</button>
+      </div>
+
+      <!-- Professional (featured) -->
+      <div class="pricing-card featured reveal">
+        <div class="pricing-popular">Most popular</div>
+        <div class="pricing-tier">Professional</div>
+        <div class="pricing-price"><span class="currency" style="color:var(--gold)">R</span>8,500<span class="period">/ month</span></div>
+        <div class="pricing-sub">Billed annually — R 102,000/year</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features-list">
+          <li><span class="tick">✓</span>Up to 20 users</li>
+          <li><span class="tick">✓</span>Unlimited applications</li>
+          <li><span class="tick">✓</span>All Starter features</li>
+          <li><span class="tick">✓</span>Terms of Reference module</li>
+          <li><span class="tick">✓</span>AI analysis (50 calls/month)</li>
+          <li><span class="tick">✓</span>Custom logo & branding</li>
+          <li><span class="tick">✓</span>Priority email support (24hr)</li>
+          <li><span class="cross">✗</span>Custom domain</li>
+          <li><span class="cross">✗</span>Dedicated support manager</li>
+        </ul>
+        <button class="pricing-btn" onclick="openModal('Professional','R 8,500/month')">Subscribe now</button>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="pricing-card reveal reveal-delay-2">
+        <div class="pricing-tier">Enterprise</div>
+        <div class="pricing-price"><span class="currency">R</span>18,000<span class="period">/month</span></div>
+        <div class="pricing-sub">Billed annually — R 216,000/year</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features-list">
+          <li><span class="tick">✓</span>Unlimited users</li>
+          <li><span class="tick">✓</span>Unlimited applications</li>
+          <li><span class="tick">✓</span>All Professional features</li>
+          <li><span class="tick">✓</span>Unlimited AI analysis</li>
+          <li><span class="tick">✓</span>Custom domain</li>
+          <li><span class="tick">✓</span>Dedicated support manager</li>
+          <li><span class="tick">✓</span>4-hour SLA response</li>
+          <li><span class="tick">✓</span>On-premise deployment option</li>
+          <li><span class="tick">✓</span>White-label branding</li>
+        </ul>
+        <button class="pricing-btn" onclick="openModal('Enterprise','R 18,000/month')">Contact us</button>
+      </div>
+    </div>
+
+    <div class="pricing-note">
+      All prices exclude VAT. Annual billing only. Month-to-month pilot available on request. 30-day money-back guarantee.
+    </div>
+
+    <!-- Add-ons -->
+    <div class="pricing-addons reveal">
+      <h3 style="font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:rgba(255,255,255,.7);margin-bottom:8px">Professional services add-ons</h3>
+      <div class="addons-grid">
+        <div class="addon-card"><div class="addon-icon">🚀</div><div><div class="addon-name">Implementation & Onboarding</div><div class="addon-price">R 8,000 – R 25,000 once-off</div><div class="addon-desc">Setup, data migration, team training on-site or remote</div></div></div>
+        <div class="addon-card"><div class="addon-icon">🏛</div><div><div class="addon-name">Due Diligence Workshop</div><div class="addon-price">R 25,000 per day</div><div class="addon-desc">GMT facilitates the full review with your team on-site</div></div></div>
+        <div class="addon-card"><div class="addon-icon">⚙️</div><div><div class="addon-name">Custom Module Development</div><div class="addon-price">Quoted per scope</div><div class="addon-desc">Bespoke features built to your specific requirements</div></div></div>
+        <div class="addon-card"><div class="addon-icon">🖥</div><div><div class="addon-name">On-Premise Deployment</div><div class="addon-price">R 50,000 once-off</div><div class="addon-desc">Docker-based deployment on your own infrastructure</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SOCIAL PROOF ─────────────────────────────────────────────────────── -->
+<section class="section proof-section">
+  <div class="container">
+    <div class="text-center reveal mb-12">
+      <span class="tag">From our clients</span>
+      <h2 style="font-size:clamp(2rem,4vw,2.8rem);font-weight:800;color:var(--ink);margin-top:16px;letter-spacing:-.02em">
+        Trusted by ICT leaders across government
+      </h2>
+    </div>
+    <div class="proof-grid">
+      <div class="proof-card reveal reveal-delay-1">
+        <div class="proof-stars">★★★★★</div>
+        <div class="proof-quote">"We completed a full portfolio review of 34 applications in two days. The AG's office specifically noted our documentation as a model for other departments. ADC made it possible."</div>
+        <div class="proof-author">
+          <div class="proof-avatar">NM</div>
+          <div>
+            <div class="proof-name">N. Mthembu</div>
+            <div class="proof-role">Director: ICT, Eastern Cape</div>
+            <span class="proof-tag">Provincial Department</span>
+          </div>
+        </div>
+      </div>
+      <div class="proof-card reveal">
+        <div class="proof-stars">★★★★★</div>
+        <div class="proof-quote">"The query workflow alone saved us weeks of email chains. Every decision is documented, timestamped, and traceable. Our CFO was impressed by the audit trail."</div>
+        <div class="proof-author">
+          <div class="proof-avatar" style="background:var(--blue)">SB</div>
+          <div>
+            <div class="proof-name">S. Botha</div>
+            <div class="proof-role">Chief Information Officer</div>
+            <span class="proof-tag">Municipality</span>
+          </div>
+        </div>
+      </div>
+      <div class="proof-card reveal reveal-delay-2">
+        <div class="proof-stars">★★★★★</div>
+        <div class="proof-quote">"The AI analysis generated a boardroom-ready executive summary in 30 seconds. I just reviewed and signed it. We used to pay R80,000 for a consultant to produce something similar."</div>
+        <div class="proof-author">
+          <div class="proof-avatar" style="background:var(--teal)">LD</div>
+          <div>
+            <div class="proof-name">L. Dlamini</div>
+            <div class="proof-role">Deputy Director: Systems</div>
+            <span class="proof-tag">State Entity</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COMPLIANCE ──────────────────────────────────────────────────────── -->
+<section class="section compliance-section" id="compliance">
+  <div class="container">
+    <div class="text-center reveal mb-12">
+      <span class="tag">Compliance & Governance</span>
+      <h2 style="font-size:clamp(2rem,4vw,2.8rem);font-weight:800;color:var(--ink);margin-top:16px;margin-bottom:12px;letter-spacing:-.02em">
+        Built for South African regulatory requirements
+      </h2>
+      <p style="font-size:1rem;color:var(--ink-2);max-width:540px;margin:0 auto;line-height:1.75">
+        Not an international tool adapted for South Africa — built from the ground up with PFMA, MFMA, POPIA, and the AG's expectations at the centre.
+      </p>
+    </div>
+    <div class="compliance-grid">
+      <div class="compliance-card reveal reveal-delay-1">
+        <div class="compliance-icon">📋</div>
+        <div class="compliance-name">PFMA Aligned</div>
+        <div class="compliance-desc">Structured to support ICT asset management obligations under the Public Finance Management Act</div>
+      </div>
+      <div class="compliance-card reveal reveal-delay-2">
+        <div class="compliance-icon">🏛</div>
+        <div class="compliance-name">MFMA Ready</div>
+        <div class="compliance-desc">Portfolio review output meets Municipal Finance Management Act governance documentation requirements</div>
+      </div>
+      <div class="compliance-card reveal reveal-delay-3">
+        <div class="compliance-icon">🔒</div>
+        <div class="compliance-name">POPIA Compliant</div>
+        <div class="compliance-desc">Data minimisation, T&C acceptance screen, audit logging, and tenant isolation built in. No personal data in AI calls.</div>
+      </div>
+      <div class="compliance-card reveal reveal-delay-4">
+        <div class="compliance-icon">📊</div>
+        <div class="compliance-name">AG-Ready Output</div>
+        <div class="compliance-desc">Full audit trail on every action. Reports formatted for Auditor-General submission with decision evidence and timestamps</div>
+      </div>
+    </div>
+    <div class="text-center mt-12 reveal">
+      <div style="display:inline-flex;align-items:center;gap:24px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 32px;flex-wrap:wrap;justify-content:center">
+        <div style="font-size:13px;font-weight:600;color:var(--ink-3);letter-spacing:.08em;text-transform:uppercase">Security</div>
+        <div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center">
+          <div style="font-size:13px;color:var(--ink-2)">✓ HTTPS/TLS 1.3</div>
+          <div style="font-size:13px;color:var(--ink-2)">✓ bcrypt passwords</div>
+          <div style="font-size:13px;color:var(--ink-2)">✓ JWT authentication</div>
+          <div style="font-size:13px;color:var(--ink-2)">✓ Tenant data isolation</div>
+          <div style="font-size:13px;color:var(--ink-2)">✓ Immutable audit log</div>
+          <div style="font-size:13px;color:var(--ink-2)">✓ Role-based access</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ─────────────────────────────────────────────────────────────── -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <h2 class="cta-title">Ready to transform how your department manages applications?</h2>
+      <p class="cta-desc">Join South African public sector institutions already using ADC to produce audit-ready portfolio reviews in a single working day.</p>
+      <div class="cta-actions">
+        <a href="#pricing" class="btn btn-white btn-lg" onclick="openModal('Professional','R 8,500/month')">Subscribe now →</a>
+        <a href="mailto:sales@adcsystem.co.za" class="btn btn-outline btn-lg" style="color:white;border-color:rgba(255,255,255,.4)">Talk to sales</a>
+      </div>
+      <div class="cta-note">30-day money-back guarantee · No setup fees · Instant access</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-logo">
+          <div class="footer-brand-mark">A</div>
+          <div class="footer-brand-name">ADC System</div>
+        </div>
+        <div class="footer-desc">The Application Due Diligence Canvas — purpose-built SaaS for South African public sector ICT governance and portfolio management.</div>
+        <div class="footer-contact">
+          <div>📧 <a href="mailto:info@adcsystem.co.za">info@adcsystem.co.za</a></div>
+          <div>📞 <a href="tel:+27000000000">+27 (0) 00 000 0000</a></div>
+          <div>🌐 <a href="https://www.adcsystem.co.za">www.adcsystem.co.za</a></div>
+        </div>
+        <div class="footer-reg">GMT Technology Solutions (Pty) Ltd<br>Registration: [CIPC Number] | VAT: [VAT Number]<br>CSD Supplier: [CSD Number]</div>
+      </div>
+      <div>
+        <div class="footer-col-title">Product</div>
+        <ul class="footer-links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#how-it-works">How it works</a></li>
+          <li><a href="#compliance">Compliance</a></li>
+          <li><a href="https://app.adcsystem.co.za">Sign in</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="#">About GMT</a></li>
+          <li><a href="#">Case studies</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="mailto:careers@adcsystem.co.za">Careers</a></li>
+          <li><a href="mailto:press@adcsystem.co.za">Press</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Support</div>
+        <ul class="footer-links">
+          <li><a href="#">Documentation</a></li>
+          <li><a href="#">User guide</a></li>
+          <li><a href="mailto:support@adcsystem.co.za">Support desk</a></li>
+          <li><a href="#">System status</a></li>
+          <li><a href="mailto:sales@adcsystem.co.za">Sales enquiries</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 GMT Technology Solutions (Pty) Ltd. All rights reserved.</div>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+        <a href="#">POPIA Notice</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ── SUBSCRIBE MODAL ─────────────────────────────────────────────────── -->
+<div class="modal-overlay" id="modal-overlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div style="font-size:32px;margin-bottom:12px">🎉</div>
+    <h3>Subscribe to ADC</h3>
+    <div class="modal-sub">You're one step away from transforming your application due diligence process. Complete the form below and we'll activate your account within 1 business hour.</div>
+    <div class="modal-plan">
+      <div>
+        <div class="modal-plan-name" id="modal-plan-name">Professional</div>
+        <div style="font-size:12px;color:var(--ink-3)">Billed annually</div>
+      </div>
+      <div class="modal-plan-price" id="modal-plan-price">R 8,500/month</div>
+    </div>
+    <form id="subscription-form" onsubmit="submitForm(event)">
+      <div class="form-error" id="form-error"></div>
+      <input type="hidden" id="f-plan-code" value="professional"/>
+      <input type="hidden" id="f-source" value="website"/>
+      <div class="form-group">
+        <label>Organisation name</label>
+        <input type="text" placeholder="e.g. Eastern Cape Department of Health" id="f-org" required/>
+      </div>
+      <div class="form-group">
+        <label>Your full name</label>
+        <input type="text" placeholder="First and last name" id="f-name" required/>
+      </div>
+      <div class="form-group">
+        <label>Work email address</label>
+        <input type="email" placeholder="name@department.gov.za" id="f-email" required/>
+      </div>
+      <div class="form-group">
+        <label>Contact number</label>
+        <input type="tel" placeholder="+27 00 000 0000" id="f-phone"/>
+      </div>
+      <div class="form-group">
+        <label>Number of users needed</label>
+        <select id="f-users">
+          <option>1-5 users</option>
+          <option selected>6-20 users</option>
+          <option>21-50 users</option>
+          <option>50+ users</option>
+        </select>
+      </div>
+      <button class="btn btn-gold w-full" id="subscribe-btn" type="submit" style="width:100%;justify-content:center;padding:16px">
+        Complete subscription →
+      </button>
+    </form>
+    <div class="form-note">By subscribing you agree to our <a href="#" style="color:var(--gold)">Terms of Service</a> and <a href="#" style="color:var(--gold)">Privacy Policy</a>. Your ADC account is provisioned automatically and an activation email is sent immediately.</div>
+    <div class="stripe-note">🔒 Payments secured by Stripe · 30-day money-back guarantee</div>
+  </div>
+</div>
+
+<!-- ── SUCCESS MODAL ──────────────────────────────────────────────────── -->
+<div class="modal-overlay" id="success-overlay">
+  <div class="modal" style="text-align:center">
+    <div style="font-size:56px;margin-bottom:16px">✅</div>
+    <h3 style="margin-bottom:8px">You're subscribed!</h3>
+    <div class="modal-sub">Thank you. Your organisation has been provisioned and an activation email has been sent to your work address.</div>
+    <div style="background:var(--teal-light);border-radius:var(--radius);padding:16px;margin-bottom:20px;font-size:13px;color:var(--teal)">
+      <strong>What happens next:</strong><br>
+      1. You receive your activation email immediately<br>
+      2. Sign in using your temporary password<br>
+      3. Start your first canvas today
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <a class="btn btn-primary" id="success-signin" href="https://app.adcsystem.co.za" style="flex:1;justify-content:center">Go to sign in</a>
+      <button class="btn btn-outline" style="flex:1;justify-content:center" onclick="closeSuccess()" type="button">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const APP_URL = 'https://app.adcsystem.co.za'
+const QUERY_PARAMS = new URLSearchParams(window.location.search)
+const apiBaseFromQuery = QUERY_PARAMS.get('api_base')
+const MARKETPLACE_API_BASE =
+  apiBaseFromQuery ||
+  window.ADC_MARKETPLACE_API ||
+  document.querySelector('meta[name="adc-api-base"]')?.content ||
+  (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    ? 'http://localhost:8000/api/v1'
+    : 'https://api.adcsystem.co.za/api/v1')
+
+const PLAN_MAP = {
+  starter: { label: 'Starter', price: 'R 3,500/month' },
+  professional: { label: 'Professional', price: 'R 8,500/month' },
+  enterprise: { label: 'Enterprise', price: 'R 18,000/month' },
+}
+
+// ── NAV scroll ─────────────────────────────────────────────────────────
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>40)
+})
+
+// ── Feature tabs ──────────────────────────────────────────────────────
+function showFeature(name, btn) {
+  document.querySelectorAll('.feature-content').forEach(el=>el.classList.remove('active'))
+  document.querySelectorAll('.feature-tab').forEach(el=>el.classList.remove('active'))
+  document.getElementById('feat-'+name).classList.add('active')
+  btn.classList.add('active')
+}
+
+// ── Modal ─────────────────────────────────────────────────────────────
+function openModal(plan, price) {
+  const planKey = String(plan || 'professional').toLowerCase()
+  const normalized = PLAN_MAP[planKey] ? planKey : 'professional'
+  const selectedPlan = PLAN_MAP[normalized]
+
+  document.getElementById('modal-plan-name').textContent = selectedPlan?.label || plan || 'Professional'
+  document.getElementById('modal-plan-price').textContent = selectedPlan?.price || price || 'R 8,500/month'
+  document.getElementById('f-plan-code').value = normalized
+  document.getElementById('f-source').value = getMarketplaceSource()
+  document.getElementById('form-error').style.display = 'none'
+  document.getElementById('form-error').textContent = ''
+
+  document.getElementById('modal-overlay').classList.add('open')
+  document.body.style.overflow='hidden'
+}
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open')
+  document.body.style.overflow=''
+}
+function closeSuccess() {
+  document.getElementById('success-overlay').classList.remove('open')
+  document.body.style.overflow=''
+}
+
+function getMarketplaceSource() {
+  const params = new URLSearchParams(window.location.search)
+  const source = (params.get('source') || params.get('utm_source') || '').toLowerCase()
+  if (source.includes('netlify')) return 'netlify-marketplace'
+  if (source) return source
+  return 'website'
+}
+
+function showFormError(message) {
+  const errorBox = document.getElementById('form-error')
+  errorBox.textContent = message
+  errorBox.style.display = 'block'
+}
+
+async function submitLeadToNetlify(payload) {
+  try {
+    await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({
+        'form-name': 'subscription',
+        'bot-field': '',
+        ...payload,
+      }).toString(),
+    })
+  } catch (_) {
+    // Netlify lead capture should never block primary provisioning.
+  }
+}
+
+async function submitForm(event) {
+  if (event) event.preventDefault()
+
+  const org  = document.getElementById('f-org').value.trim()
+  const name = document.getElementById('f-name').value.trim()
+  const email = document.getElementById('f-email').value.trim()
+  const planName = document.getElementById('modal-plan-name').textContent
+  const planPrice = document.getElementById('modal-plan-price').textContent
+  const planCode = document.getElementById('f-plan-code').value
+  const source = document.getElementById('f-source').value
+  const phone = document.getElementById('f-phone').value
+  const users = document.getElementById('f-users').value
+  const submittedAt = new Date().toISOString()
+
+  if (!org || !name || !email) {
+    showFormError('Please fill in Organisation, Name, and Email.')
+    return
+  }
+  if (!/\S+@\S+\.\S+/.test(email)) {
+    showFormError('Please enter a valid email address.')
+    return
+  }
+
+  const submitBtn = document.getElementById('subscribe-btn')
+  submitBtn.disabled = true
+  submitBtn.textContent = 'Submitting...'
+
+  const payload = {
+    plan: planName,
+    plan_code: planCode,
+    plan_price: planPrice,
+    source,
+    organisation: org,
+    name,
+    email,
+    phone,
+    users,
+    landing_url: window.location.href,
+    referrer: document.referrer || '',
+    submitted_at: submittedAt,
+  }
+
+  try {
+    const response = await fetch(`${MARKETPLACE_API_BASE}/marketplace/subscribe`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        ...payload,
+        bot_field: '',
+      }),
+    })
+
+    const responseData = await response.json().catch(() => ({}))
+
+    if (!response.ok) {
+      if (response.status === 409) {
+        throw new Error(responseData.detail || 'An account with this email already exists. Please sign in or reset your password.')
+      }
+      throw new Error(responseData.detail || 'Provisioning request failed')
+    }
+
+    submitLeadToNetlify({
+      ...payload,
+      provisioning_status: 'provisioned',
+      provisioning_message: responseData.message || '',
+    })
+
+    closeModal()
+    const loginBase = responseData.login_url || (APP_URL + '/login')
+    const signInUrl = new URL(loginBase)
+    signInUrl.searchParams.set('source', source)
+    signInUrl.searchParams.set('plan', planCode)
+    signInUrl.searchParams.set('email', email)
+    document.getElementById('success-signin').href = signInUrl.toString()
+    document.getElementById('success-overlay').classList.add('open')
+    document.body.style.overflow = 'hidden'
+  } catch (err) {
+    submitLeadToNetlify({
+      ...payload,
+      provisioning_status: 'failed',
+      provisioning_message: String(err.message || 'Unknown error'),
+    })
+    showFormError(err.message || 'Unable to submit right now. Please try again or email sales@adcsystem.co.za.')
+  } finally {
+    submitBtn.disabled = false
+    submitBtn.textContent = 'Complete subscription \u2192'
+  }
+}
+
+// ── Scroll reveal ─────────────────────────────────────────────────────
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible') })
+},{threshold:0.1})
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el))
+
+// ── Smooth scroll for nav links ───────────────────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const target = document.querySelector(a.getAttribute('href'))
+    if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth',block:'start'}) }
+  })
+})
+
+// ── Marketplace query handling ─────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search)
+  const plan = (params.get('plan') || '').toLowerCase()
+  const email = params.get('email') || ''
+  const source = getMarketplaceSource()
+
+  if (email) {
+    const emailField = document.getElementById('f-email')
+    if (emailField) emailField.value = email
+  }
+
+  document.getElementById('f-source').value = source
+
+  if (PLAN_MAP[plan]) {
+    window.setTimeout(() => {
+      openModal(plan, PLAN_MAP[plan].price)
+    }, 200)
+  }
+})
+</script>
+
+<!-- Netlify Forms support -->
+<form name="subscription" netlify netlify-honeypot="bot-field" hidden>
+  <input name="bot-field"/>
+  <input name="plan"/>
+  <input name="plan_code"/>
+  <input name="plan_price"/>
+  <input name="source"/>
+  <input name="organisation"/>
+  <input name="name"/>
+  <input name="email"/>
+  <input name="phone"/>
+  <input name="users"/>
+  <input name="landing_url"/>
+  <input name="referrer"/>
+  <input name="submitted_at"/>
+  <input name="provisioning_status"/>
+  <input name="provisioning_message"/>
+</form>
+
+</body>
+</html>

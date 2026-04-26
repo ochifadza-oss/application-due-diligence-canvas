@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>ADC System — UI Mockups | GMT Technology Solutions</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;font-size:13px;background:#F8F8F6;color:#222;padding:2rem}
+.page-header{background:#1F3864;color:#fff;padding:1.5rem 2rem;border-radius:10px;margin-bottom:2rem;display:flex;justify-content:space-between;align-items:center}
+.page-header h1{font-size:20px;font-weight:600}
+.page-header p{font-size:12px;opacity:.75;margin-top:4px}
+.page-header .meta{text-align:right;font-size:11px;opacity:.7}
+.screen-wrap{margin-bottom:3rem}
+.screen-label{font-size:11px;font-weight:600;color:#555;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.5rem}
+.screen{background:#fff;border:1px solid #E0E0E0;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.topbar{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid #F0F0F0;background:#fff}
+.logo-box{width:32px;height:32px;background:#F0F0F0;border:1px solid #E0E0E0;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:9px;color:#999;flex-shrink:0}
+.org-name{font-size:13px;font-weight:600;color:#1F3864}
+.org-sub{font-size:10px;color:#999}
+.tabs{display:flex;gap:2px;margin-left:auto;background:#F5F5F5;border-radius:8px;padding:2px}
+.tab{padding:4px 10px;font-size:11px;border-radius:6px;color:#888;white-space:nowrap}
+.tab.on{background:#fff;color:#222;font-weight:600;border:1px solid #E0E0E0}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:10px 14px;border-bottom:1px solid #F0F0F0}
+.stat{background:#F8F8F6;border-radius:6px;padding:8px 10px;text-align:center}
+.stat-n{font-size:18px;font-weight:600;color:#222}
+.stat-l{font-size:10px;color:#888;margin-top:1px}
+.tbar{display:flex;align-items:center;justify-content:flex-end;gap:6px;padding:6px 14px;border-bottom:1px solid #F0F0F0}
+.tbtn{font-size:11px;padding:4px 10px;border:1px solid #E0E0E0;border-radius:6px;background:#fff;color:#222;cursor:pointer}
+.tbtn-p{background:#1F3864;color:#fff;border-color:#1F3864}
+.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:10px 14px}
+.dcell{border:1px solid #E0E0E0;border-radius:8px;padding:10px}
+.dcell-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.dcell-name{font-size:11px;font-weight:600;color:#222}
+.badge{font-size:10px;padding:1px 7px;border-radius:20px}
+.bg{background:#EAF3DE;color:#3B6D11}
+.ba{background:#FAEEDA;color:#854F0B}
+.br{background:#FCEBEB;color:#A32D2D}
+.bn{background:#F5F5F5;color:#999}
+.app-pill{font-size:10px;background:#F5F5F5;border-radius:4px;padding:2px 6px;margin-bottom:3px;display:flex;justify-content:space-between;color:#666}
+.pbar{height:3px;background:#E8E8E8;border-radius:2px;margin-top:6px;overflow:hidden}
+.pfill{height:100%;border-radius:2px;background:#1D9E75}
+.addlnk{font-size:10px;color:#aaa;border:1px dashed #D0D0D0;border-radius:4px;padding:2px 6px;text-align:center;margin-top:5px}
+.section-divider{padding:8px 14px;background:#F8F8F6;border-bottom:1px solid #F0F0F0;font-size:11px;font-weight:600;color:#1F3864}
+table.mt{width:100%;border-collapse:collapse;font-size:11px}
+table.mt th{text-align:left;padding:5px 8px;font-size:10px;font-weight:600;color:#666;border-bottom:1px solid #E8E8E8;background:#F8F8F6}
+table.mt td{padding:5px 8px;border-bottom:1px solid #F0F0F0;color:#333}
+table.mt tr:last-child td{border-bottom:none}
+.inp-m{background:#F5F5F5;border:1px solid #E0E0E0;border-radius:4px;padding:2px 5px;font-size:10px;color:#555;width:70px;display:inline-block}
+.sbar{display:inline-flex;height:5px;width:50px;background:#E8E8E8;border-radius:3px;overflow:hidden;vertical-align:middle;margin-right:4px}
+.sfill{height:100%;border-radius:3px}
+.rec-sel{font-size:10px;padding:2px 5px;border:1px solid #E0E0E0;border-radius:4px;color:#555}
+.tor-body{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.tor-col{padding:12px 14px}
+.tor-col+.tor-col{border-left:1px solid #F0F0F0}
+.tsh{font-size:11px;font-weight:600;border-bottom:1px solid #E8E8E8;padding-bottom:4px;margin-bottom:6px;color:#1F3864}
+.tfi{width:100%;background:#F5F5F5;border:1px solid #E0E0E0;border-radius:4px;padding:3px 6px;font-size:11px;color:#333;margin-bottom:5px}
+.tta{width:100%;background:#F5F5F5;border:1px solid #E0E0E0;border-radius:4px;padding:4px 6px;font-size:10px;color:#666;height:40px;resize:none;margin-bottom:5px}
+.qcard{padding:10px 14px;border-bottom:1px solid #F0F0F0}
+.qtitle{font-size:12px;font-weight:600;color:#222}
+.qdesc{font-size:11px;color:#666;margin-top:2px;margin-bottom:5px}
+.qmeta{display:flex;gap:5px;align-items:center;flex-wrap:wrap}
+.qs-open{background:#E6F1FB;color:#185FA5;font-size:10px;padding:1px 7px;border-radius:20px;font-weight:600}
+.qs-prog{background:#FAEEDA;color:#854F0B;font-size:10px;padding:1px 7px;border-radius:20px;font-weight:600}
+.qs-esc{background:#FCEBEB;color:#A32D2D;font-size:10px;padding:1px 7px;border-radius:20px;font-weight:600}
+.ph{background:#FCEBEB;color:#A32D2D;font-size:10px;padding:1px 7px;border-radius:20px}
+.pm{background:#FAEEDA;color:#854F0B;font-size:10px;padding:1px 7px;border-radius:20px}
+.wf{display:flex;gap:0;margin-top:8px;align-items:center}
+.wf-step{display:flex;flex-direction:column;align-items:center;flex:1;position:relative}
+.wf-line{position:absolute;top:9px;left:50%;width:100%;height:1.5px;background:#E0E0E0}
+.wf-line.done{background:#1D9E75}
+.wf-dot{width:18px;height:18px;border-radius:50%;border:1.5px solid #D0D0D0;background:#fff;font-size:9px;display:flex;align-items:center;justify-content:center;font-weight:600;color:#999;position:relative;z-index:1}
+.wf-dot.done{background:#1D9E75;border-color:#1D9E75;color:#fff}
+.wf-dot.active{background:#E6F1FB;border-color:#185FA5;color:#185FA5}
+.wf-lbl{font-size:9px;color:#aaa;margin-top:2px;text-align:center}
+.set-body{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.set-col{padding:12px 14px}
+.set-col+.set-col{border-left:1px solid #F0F0F0}
+.set-gh{font-size:11px;font-weight:600;border-bottom:1px solid #E8E8E8;padding-bottom:4px;margin-bottom:8px;color:#1F3864}
+.set-row{display:flex;align-items:center;justify-content:space-between;padding:5px 0;border-bottom:1px solid #F5F5F5}
+.set-inp{width:140px;background:#F5F5F5;border:1px solid #E0E0E0;border-radius:4px;padding:3px 6px;font-size:11px;color:#333}
+.dp{display:flex;gap:5px;align-items:center;padding:4px 0;border-bottom:1px solid #F5F5F5}
+.dp input{flex:1;background:#F5F5F5;border:1px solid #E0E0E0;border-radius:4px;padding:2px 6px;font-size:11px;color:#333}
+.mini-bar{display:inline-flex;width:40px;height:5px;background:#E8E8E8;border-radius:3px;overflow:hidden;vertical-align:middle;margin-right:4px}
+.mini-fill{height:100%;border-radius:3px}
+@media print{
+  body{padding:1rem}
+  .screen-wrap{page-break-inside:avoid;margin-bottom:2rem}
+}
+</style>
+</head>
+<body>
+<div class="page-header">
+  <div><h1>Application Due Diligence Canvas — UI Mockups</h1><p>All six system screens — Eastern Cape Dept of Health sample data</p></div>
+  <div class="meta">Document: UI-ADC-2026-001<br/>Version: 1.0 | April 2026<br/>GMT Technology Solutions</div>
+</div>
+
+<!-- SCREEN 1: CANVAS -->
+<div class="screen-wrap">
+<div class="screen-label">Screen 1 — Canvas (domain grid view)</div>
+<div class="screen">
+  <div class="topbar"><div class="logo-box">Logo</div><div><div class="org-name">Eastern Cape Dept of Health</div><div class="org-sub">ICT Directorate — Application Due Diligence Canvas</div></div><div class="tabs"><span class="tab on">Canvas</span><span class="tab">Pricing</span><span class="tab">Terms of Reference</span><span class="tab">Queries</span><span class="tab">Reports</span><span class="tab">Settings</span></div></div>
+  <div class="stats"><div class="stat"><div class="stat-n">9</div><div class="stat-l">Domains</div></div><div class="stat"><div class="stat-n">24</div><div class="stat-l">Applications</div></div><div class="stat"><div class="stat-n">18/24</div><div class="stat-l">Rated</div></div><div class="stat"><div class="stat-n">3.4/5</div><div class="stat-l">Portfolio Score</div></div></div>
+  <div class="tbar"><button class="tbtn tbtn-p">+ Add Application</button></div>
+  <div class="cgrid">
+    <div class="dcell"><div class="dcell-hdr"><div class="dcell-name">Finance &amp; Accounting</div><span class="badge bg">4.1</span></div><div class="app-pill"><span>SAP FI</span><span style="color:#EF9F27">4.2</span></div><div class="app-pill"><span>Pastel Payroll</span><span style="color:#EF9F27">3.8</span></div><div class="app-pill"><span>BAS</span><span style="color:#EF9F27">4.3</span></div><div class="pbar"><div class="pfill" style="width:100%"></div></div><div class="addlnk">+ add application</div></div>
+    <div class="dcell"><div class="dcell-hdr"><div class="dcell-name">Human Resources</div><span class="badge ba">2.9</span></div><div class="app-pill"><span>PERSAL</span><span style="color:#EF9F27">3.1</span></div><div class="app-pill"><span>ESS Portal</span><span style="color:#EF9F27">2.4</span></div><div class="pbar"><div class="pfill" style="width:66%"></div></div><div class="addlnk">+ add application</div></div>
+    <div class="dcell"><div class="dcell-hdr"><div class="dcell-name">Operations</div><span class="badge br">1.8</span></div><div class="app-pill"><span>Legacy PIMS</span><span style="color:#EF9F27">1.8</span></div><div class="pbar"><div class="pfill" style="width:100%"></div></div><div class="addlnk">+ add application</div></div>
+    <div class="dcell"><div class="dcell-hdr"><div class="dcell-name">Customer Management</div><span class="badge ba">3.2</span></div><div class="app-pill"><span>CRM360</span><span style="color:#EF9F27">3.5</span></div><div class="app-pill"><span>Service Desk</span><span style="color:#EF9F27">2.9</span></div><div class="pbar"><div class="pfill" style="width:100%"></div></div><div class="addlnk">+ add application</div></div>
+    <div class="dcell"><div class="dcell-hdr"><div class="dcell-name">IT Infrastructure</div><span class="badge bg">4.4</span></div><div class="app-pill"><span>Active Directory</span><span style="color:#EF9F27">4.6</span></div><div class="app-pill"><span>SIEM Platform</span><span style="color:#EF9F27">4.2</span></div><div class="pbar"><div class="pfill" style="width:100%"></div></div><div class="addlnk">+ add application</div></div>
+    <div class="dcell"><div class="dcell-hdr"><div class="dcell-name">Analytics &amp; BI</div><span class="badge bn">–</span></div><div style="font-size:10px;color:#aaa;margin-top:4px">No applications yet</div><div class="addlnk">+ add application</div></div>
+  </div>
+</div>
+</div>
+
+<!-- SCREEN 2: PRICING -->
+<div class="screen-wrap">
+<div class="screen-label">Screen 2 — Pricing &amp; score management</div>
+<div class="screen">
+  <div class="topbar"><div class="logo-box">Logo</div><div><div class="org-name">Eastern Cape Dept of Health</div><div class="org-sub">ICT Directorate — Application Due Diligence Canvas</div></div><div class="tabs"><span class="tab">Canvas</span><span class="tab on">Pricing</span><span class="tab">Terms of Reference</span><span class="tab">Queries</span><span class="tab">Reports</span><span class="tab">Settings</span></div></div>
+  <div class="tbar"><button class="tbtn">Export Excel</button><button class="tbtn tbtn-p">Save All</button></div>
+  <div style="overflow-x:auto;padding:10px 14px">
+    <table class="mt"><thead><tr><th>Application</th><th>Domain</th><th>Licence (R)</th><th>Maint. (R)</th><th>Impl. (R)</th><th>Total TCO</th><th>Weight %</th><th>Wtd Score</th><th>Recommendation</th></tr></thead>
+    <tbody>
+      <tr><td style="font-weight:600">SAP FI</td><td style="color:#999">Finance</td><td><span class="inp-m">R 480 000</span></td><td><span class="inp-m">R 96 000</span></td><td><span class="inp-m">R 250 000</span></td><td style="font-weight:600">R 826 000</td><td><span class="inp-m">100</span></td><td><div class="sbar"><div class="sfill" style="width:84%;background:#1D9E75"></div></div><span class="badge bg">4.2</span></td><td><span class="rec-sel">Keep ▾</span></td></tr>
+      <tr style="background:#F8F8F6"><td style="font-weight:600">PERSAL</td><td style="color:#999">HR</td><td><span class="inp-m">R 0</span></td><td><span class="inp-m">R 32 000</span></td><td><span class="inp-m">R 0</span></td><td style="font-weight:600">R 32 000</td><td><span class="inp-m">100</span></td><td><div class="sbar"><div class="sfill" style="width:62%;background:#BA7517"></div></div><span class="badge ba">3.1</span></td><td><span class="rec-sel">Review ▾</span></td></tr>
+      <tr><td style="font-weight:600">Legacy PIMS</td><td style="color:#999">Operations</td><td><span class="inp-m">R 120 000</span></td><td><span class="inp-m">R 48 000</span></td><td><span class="inp-m">R 0</span></td><td style="font-weight:600">R 168 000</td><td><span class="inp-m">100</span></td><td><div class="sbar"><div class="sfill" style="width:36%;background:#E24B4A"></div></div><span class="badge br">1.8</span></td><td><span class="rec-sel">Replace ▾</span></td></tr>
+    </tbody></table>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:8px 14px;background:#F8F8F6;border-top:1px solid #F0F0F0">
+    <div class="stat"><div class="stat-l">Licence total</div><div style="font-size:13px;font-weight:600">R 600 000</div></div>
+    <div class="stat"><div class="stat-l">Maintenance total</div><div style="font-size:13px;font-weight:600">R 176 000</div></div>
+    <div class="stat"><div class="stat-l">Impl. total</div><div style="font-size:13px;font-weight:600">R 250 000</div></div>
+    <div class="stat"><div class="stat-l">Portfolio TCO</div><div style="font-size:13px;font-weight:600">R 1 026 000</div></div>
+  </div>
+</div>
+</div>
+
+<!-- SCREEN 3: TERMS OF REFERENCE -->
+<div class="screen-wrap">
+<div class="screen-label">Screen 3 — Terms of Reference</div>
+<div class="screen">
+  <div class="topbar"><div class="logo-box">Logo</div><div><div class="org-name">Eastern Cape Dept of Health</div><div class="org-sub">ICT Directorate — Application Due Diligence Canvas</div></div><div class="tabs"><span class="tab">Canvas</span><span class="tab">Pricing</span><span class="tab on">Terms of Reference</span><span class="tab">Queries</span><span class="tab">Reports</span><span class="tab">Settings</span></div></div>
+  <div class="tbar"><button class="tbtn">Save TOR</button><button class="tbtn tbtn-p">Export PDF</button><button class="tbtn">Generate with AI ↗</button></div>
+  <div class="tor-body">
+    <div class="tor-col"><div class="tsh">Project identification</div><input class="tfi" value="Application Portfolio Due Diligence Review 2025/26" readonly/><input class="tfi" value="DDG: Corporate Services" readonly/><input class="tfi" value="Director: ICT" readonly/><div style="display:grid;grid-template-columns:1fr 1fr;gap:6px"><input class="tfi" value="2026-05-01" readonly/><input class="tfi" value="2026-07-31" readonly/></div><input class="tfi" value="R 180 000" readonly/><div class="tsh" style="margin-top:10px">Background &amp; context</div><textarea class="tta" readonly>The Eastern Cape Department of Health operates a diverse application portfolio spanning 9 business domains. A formal due diligence review is required to rationalise the portfolio...</textarea><div class="tsh" style="margin-top:6px">Purpose &amp; objectives</div><textarea class="tta" readonly>To conduct a structured assessment of all departmental applications against defined criteria including Business Fit, Technical Health, Cost Efficiency, and Risk Level.</textarea></div>
+    <div class="tor-col"><div class="tsh">Deliverables</div><div style="display:flex;gap:5px;margin-bottom:4px"><input class="tfi" style="flex:1;margin-bottom:0" value="Due Diligence Report" readonly/><input class="tfi" style="width:100px;margin-bottom:0" value="2026-07-15" readonly/></div><div style="display:flex;gap:5px;margin-bottom:4px"><input class="tfi" style="flex:1;margin-bottom:0" value="Application Inventory (Excel)" readonly/><input class="tfi" style="width:100px;margin-bottom:0" value="2026-06-30" readonly/></div><div class="tsh" style="margin-top:10px">Stakeholders</div><div style="display:flex;gap:5px;margin-bottom:4px"><input class="tfi" style="flex:1;margin-bottom:0" value="Dr. N. Mthembu" readonly/><input class="tfi" style="flex:1;margin-bottom:0" value="DDG: Corp Services" readonly/></div><div style="display:flex;gap:5px;margin-bottom:4px"><input class="tfi" style="flex:1;margin-bottom:0" value="Mr. S. Botha" readonly/><input class="tfi" style="flex:1;margin-bottom:0" value="Director: ICT" readonly/></div><div class="tsh" style="margin-top:10px">Methodology</div><textarea class="tta" readonly>Canvas-based assessment using a 1–5 star rating system across 4 criteria. All applications scored independently by two analysts and averaged.</textarea><div class="tsh" style="margin-top:6px">Governance</div><textarea class="tta" readonly>Weekly progress meetings. Escalation to DDG. Final report reviewed by Steering Committee before acceptance.</textarea></div>
+  </div>
+</div>
+</div>
+
+<!-- SCREEN 4: QUERIES -->
+<div class="screen-wrap">
+<div class="screen-label">Screen 4 — Query &amp; issue management</div>
+<div class="screen">
+  <div class="topbar"><div class="logo-box">Logo</div><div><div class="org-name">Eastern Cape Dept of Health</div><div class="org-sub">ICT Directorate — Application Due Diligence Canvas</div></div><div class="tabs"><span class="tab">Canvas</span><span class="tab">Pricing</span><span class="tab">Terms of Reference</span><span class="tab on">Queries</span><span class="tab">Reports</span><span class="tab">Settings</span></div></div>
+  <div class="stats"><div class="stat"><div class="stat-n" style="color:#185FA5">4</div><div class="stat-l">Open</div></div><div class="stat"><div class="stat-n" style="color:#854F0B">3</div><div class="stat-l">In Progress</div></div><div class="stat"><div class="stat-n" style="color:#A32D2D">1</div><div class="stat-l">Escalated</div></div><div class="stat"><div class="stat-n" style="color:#3B6D11">7</div><div class="stat-l">Resolved</div></div></div>
+  <div class="tbar"><button class="tbtn">All Statuses ▾</button><button class="tbtn">All Priorities ▾</button><button class="tbtn tbtn-p" style="margin-left:auto">+ New Query</button></div>
+  <div class="qcard"><div style="display:flex;justify-content:space-between"><div><div class="qtitle">Legacy PIMS — licensing agreement expiry date unclear</div><div class="qdesc">The current licence for Legacy PIMS has no renewal date on file. Vendor confirmation required before replacement decision.</div><div class="qmeta"><span class="qs-esc">Escalated</span><span class="ph">High</span><span style="font-size:10px;color:#999">Legacy PIMS → Mr. S. Botha · Due: 2026-05-10</span></div></div><button class="tbtn" style="margin-left:8px;flex-shrink:0;align-self:flex-start">Manage</button></div><div class="wf"><div class="wf-step"><div class="wf-line done"></div><div class="wf-dot done">✓</div><div class="wf-lbl">Submitted</div></div><div class="wf-step"><div class="wf-line done"></div><div class="wf-dot done">✓</div><div class="wf-lbl">Acknowledged</div></div><div class="wf-step"><div class="wf-line done"></div><div class="wf-dot done">✓</div><div class="wf-lbl">Under Review</div></div><div class="wf-step"><div class="wf-line"></div><div class="wf-dot active">4</div><div class="wf-lbl">Response Issued</div></div><div class="wf-step"><div class="wf-dot">5</div><div class="wf-lbl">Closed</div></div></div></div>
+  <div class="qcard"><div style="display:flex;justify-content:space-between"><div><div class="qtitle">ESS Portal — login failures on mobile browsers</div><div class="qdesc">Multiple staff members report inability to log in via Safari on iOS. Affects approximately 40% of mobile users.</div><div class="qmeta"><span class="qs-prog">In Progress</span><span class="pm">Medium</span><span style="font-size:10px;color:#999">ESS Portal → Ms. L. Dlamini</span></div></div><button class="tbtn" style="margin-left:8px;flex-shrink:0;align-self:flex-start">Manage</button></div><div class="wf"><div class="wf-step"><div class="wf-line done"></div><div class="wf-dot done">✓</div><div class="wf-lbl">Submitted</div></div><div class="wf-step"><div class="wf-line done"></div><div class="wf-dot done">✓</div><div class="wf-lbl">Acknowledged</div></div><div class="wf-step"><div class="wf-line"></div><div class="wf-dot active">3</div><div class="wf-lbl">Under Review</div></div><div class="wf-step"><div class="wf-line"></div><div class="wf-dot">4</div><div class="wf-lbl">Response Issued</div></div><div class="wf-step"><div class="wf-dot">5</div><div class="wf-lbl">Closed</div></div></div></div>
+</div>
+</div>
+
+<!-- SCREEN 5: REPORTS -->
+<div class="screen-wrap">
+<div class="screen-label">Screen 5 — Portfolio report</div>
+<div class="screen">
+  <div class="topbar"><div class="logo-box">Logo</div><div><div class="org-name">Eastern Cape Dept of Health</div><div class="org-sub">ICT Directorate — Application Due Diligence Canvas</div></div><div class="tabs"><span class="tab">Canvas</span><span class="tab">Pricing</span><span class="tab">Terms of Reference</span><span class="tab">Queries</span><span class="tab on">Reports</span><span class="tab">Settings</span></div></div>
+  <div class="tbar"><button class="tbtn">Export Excel</button><button class="tbtn tbtn-p">Export PDF</button><button class="tbtn">AI Analysis ↗</button></div>
+  <div style="padding:8px 14px;background:#F8F8F6;font-size:11px;color:#666;border-bottom:1px solid #F0F0F0">Eastern Cape Dept of Health — ICT Directorate &nbsp;|&nbsp; Analyst: Ms. L. Dlamini &nbsp;|&nbsp; Ref: ADC-2026-001 &nbsp;|&nbsp; FY: 2025/2026</div>
+  <div class="section-divider">Domain overview</div>
+  <div style="padding:8px 14px"><table class="mt"><thead><tr><th>Domain</th><th>Apps</th><th>Avg score</th><th>Total cost</th><th>Queries</th><th>Status</th></tr></thead><tbody>
+    <tr><td style="font-weight:600">Finance &amp; Accounting</td><td>3</td><td><div class="mini-bar"><div class="mini-fill" style="width:82%;background:#1D9E75"></div></div>4.1</td><td>R 826 000</td><td>–</td><td><span class="badge bg">Adequate</span></td></tr>
+    <tr style="background:#F8F8F6"><td style="font-weight:600">Human Resources</td><td>3</td><td><div class="mini-bar"><div class="mini-fill" style="width:58%;background:#BA7517"></div></div>2.9</td><td>R 32 000</td><td>2</td><td><span class="badge ba">Review</span></td></tr>
+    <tr><td style="font-weight:600">Operations</td><td>1</td><td><div class="mini-bar"><div class="mini-fill" style="width:36%;background:#E24B4A"></div></div>1.8</td><td>R 168 000</td><td>1</td><td><span class="badge br">Critical</span></td></tr>
+    <tr style="background:#F8F8F6"><td style="font-weight:600">IT Infrastructure</td><td>2</td><td><div class="mini-bar"><div class="mini-fill" style="width:88%;background:#1D9E75"></div></div>4.4</td><td>R 220 000</td><td>–</td><td><span class="badge bg">Adequate</span></td></tr>
+  </tbody></table></div>
+</div>
+</div>
+
+<!-- SCREEN 6: SETTINGS -->
+<div class="screen-wrap">
+<div class="screen-label">Screen 6 — Settings &amp; administration</div>
+<div class="screen">
+  <div class="topbar"><div class="logo-box">Logo</div><div><div class="org-name">Eastern Cape Dept of Health</div><div class="org-sub">ICT Directorate — Application Due Diligence Canvas</div></div><div class="tabs"><span class="tab">Canvas</span><span class="tab">Pricing</span><span class="tab">Terms of Reference</span><span class="tab">Queries</span><span class="tab">Reports</span><span class="tab on">Settings</span></div></div>
+  <div class="set-body">
+    <div class="set-col"><div class="set-gh">Institution details</div><div class="set-row"><span style="font-size:11px">Organisation name</span><input class="set-inp" value="Eastern Cape Dept of Health" readonly/></div><div class="set-row"><span style="font-size:11px">Department</span><input class="set-inp" value="ICT Directorate" readonly/></div><div class="set-row"><span style="font-size:11px">Analyst</span><input class="set-inp" value="Ms. L. Dlamini" readonly/></div><div class="set-row"><span style="font-size:11px">Reference no.</span><input class="set-inp" value="ADC-2026-001" readonly/></div><div class="set-row"><span style="font-size:11px">Financial year</span><input class="set-inp" value="2025/2026" readonly/></div><div class="set-row"><span style="font-size:11px">Currency</span><input class="set-inp" value="R" style="width:60px" readonly/></div><div class="set-gh" style="margin-top:12px">Rating criteria</div><div class="dp"><input value="Business Fit" readonly/></div><div class="dp"><input value="Technical Health" readonly/></div><div class="dp"><input value="Cost Efficiency" readonly/></div><div class="dp"><input value="Risk Level" readonly/></div></div>
+    <div class="set-col"><div class="set-gh">Domain management</div><div class="dp"><input value="Finance &amp; Accounting" readonly/><span style="color:#ccc;cursor:pointer">✕</span></div><div class="dp"><input value="Human Resources" readonly/><span style="color:#ccc;cursor:pointer">✕</span></div><div class="dp"><input value="Operations" readonly/><span style="color:#ccc;cursor:pointer">✕</span></div><div class="dp"><input value="Customer Management" readonly/><span style="color:#ccc;cursor:pointer">✕</span></div><div class="dp"><input value="Supply Chain" readonly/><span style="color:#ccc;cursor:pointer">✕</span></div><div class="dp"><input value="IT Infrastructure" readonly/><span style="color:#ccc;cursor:pointer">✕</span></div><div class="dp"><input value="Compliance &amp; Risk" readonly/><span style="color:#ccc;cursor:pointer">✕</span></div><div class="dp"><input value="Analytics &amp; BI" readonly/><span style="color:#ccc;cursor:pointer">✕</span></div><button class="tbtn" style="margin-top:8px;font-size:10px">+ Add domain</button><div class="set-gh" style="margin-top:12px">Data management</div><div style="display:flex;gap:6px"><button class="tbtn">Export JSON</button><button class="tbtn">Import JSON</button><button class="tbtn" style="color:#A32D2D">Reset all</button></div></div>
+  </div>
+</div>
+</div>
+
+<div style="text-align:center;padding:1.5rem 0;font-size:11px;color:#999;border-top:1px solid #E8E8E8;margin-top:1rem">
+  ADC System UI Mockups v1.0 &nbsp;|&nbsp; SRS-ADC-2026-001 &nbsp;|&nbsp; GMT Technology Solutions &nbsp;|&nbsp; April 2026
+</div>
+</body>
+</html>
