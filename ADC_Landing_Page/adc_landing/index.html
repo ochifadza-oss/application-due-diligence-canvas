@@ -115,32 +115,41 @@ nav.scrolled{background:linear-gradient(112deg,rgba(10,30,54,.95) 0%,rgba(21,56,
 .hero-stat-num .unit{font-size:1.2rem;color:#2f5f96}
 .hero-stat-label{font-size:13px;color:#46607c;margin-top:6px;letter-spacing:.02em;font-weight:600}
 .hero-visual{position:relative;z-index:1;margin-top:-14px}
-.hero-screen{background:#f8fbff;border-radius:16px;border:1px solid #d7e0ec;overflow:hidden;box-shadow:0 20px 46px rgba(27,53,84,.2);transform:perspective(1000px) rotateY(-4deg) rotateX(2deg);transition:transform .5s}
+.hero-screen{background:linear-gradient(180deg,#ecf3fa 0%,#e2eaf3 100%);border-radius:16px;border:1px solid rgba(167,183,201,.86);overflow:hidden;box-shadow:0 20px 46px rgba(27,53,84,.2);transform:perspective(1000px) rotateY(-4deg) rotateX(2deg);transition:transform .5s}
 .hero-screen:hover{transform:perspective(1000px) rotateY(-2deg) rotateX(1deg)}
 .hero-screen-bar{display:flex;align-items:center;gap:6px;padding:12px 16px;background:#e8eef6;border-bottom:1px solid #d8e2ee}
 .hero-screen-dot{width:10px;height:10px;border-radius:50%}
 .hero-screen-dots{display:flex;gap:5px}
 .hero-screen-url{flex:1;background:#f6f9fc;border-radius:4px;padding:4px 10px;font-size:11px;color:#6c8097;margin:0 12px}
-.mock-topbar{background:#f4f7fb;border-bottom:1px solid #dde5ef;padding:10px 16px;display:flex;align-items:center;gap:8px}
-.mock-logo{width:26px;height:26px;background:#dce8f6;border-radius:5px;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.mock-logo img{width:20px;height:20px;object-fit:contain;display:block}
-.mock-orgname{font-size:11px;font-weight:600;color:#4a5f78;flex:1}
-.mock-tabs{display:flex;gap:1px}
-.mock-tab{padding:4px 10px;font-size:9px;border-radius:4px;color:#6d8096}
-.mock-tab.active{background:#e4edf8;color:#1f466f;font-weight:600}
-.mock-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:10px 12px;background:#f6f9fc}
-.mock-cell{background:#ffffff;border-radius:8px;padding:10px;border:1px solid #dce4ef}
-.mock-cell-name{font-size:9px;font-weight:600;color:#2f4864;margin-bottom:5px}
-.mock-chip{font-size:8px;background:#f3f7fb;border-radius:3px;padding:2px 5px;color:#5e738d;margin-bottom:2px;display:flex;justify-content:space-between}
-.mock-chip .s-g{color:#1D9E75;font-weight:600}
-.mock-chip .s-a{color:#BA7517;font-weight:600}
-.mock-chip .s-r{color:#D94040;font-weight:600}
-.mock-progbar{height:2px;background:#e6edf5;border-radius:1px;margin-top:5px;overflow:hidden}
-.mock-progfill{height:100%;border-radius:1px;background:var(--teal)}
-.mock-badge{font-size:8px;padding:1px 5px;border-radius:8px;float:right}
-.mock-badge-g{background:rgba(29,158,117,.15);color:#1D9E75}
-.mock-badge-a{background:rgba(186,117,23,.15);color:#BA7517}
-.mock-badge-r{background:rgba(217,64,64,.15);color:#D94040}
+.mock-topbar{background:linear-gradient(120deg,#0d2a49 0%,#183f66 52%,#224f77 100%);border-bottom:1px solid #31567c;padding:8px 10px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.mock-brand{display:flex;align-items:center;gap:7px;min-width:0;flex:1}
+.mock-logo{width:22px;height:22px;border-radius:5px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#16395d;border:1px solid #3a618a}
+.mock-logo img{width:16px;height:16px;object-fit:contain;display:block}
+.mock-org{min-width:0}
+.mock-orgname{font-size:8.2px;font-weight:600;color:#eaf2fc;line-height:1.05;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mock-orgsub{font-size:7.2px;color:#d2deec;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mock-user{font-size:7px;color:#1f3144;background:#d6e6f3;border:1px solid #9ab0c4;border-radius:6px;padding:2px 6px;box-shadow:0 3px 8px rgba(22,41,64,.2);white-space:nowrap}
+.mock-tabshell{background:#edf3f9;border-bottom:1px solid #d4deea;padding:6px 9px;display:flex;align-items:center;gap:7px}
+.mock-tabs{display:flex;gap:2px;padding:3px;background:#eef4fa;border:1px solid #d0dbe7;border-radius:8px;flex:1;overflow:hidden}
+.mock-tab{padding:3px 6px;font-size:7.4px;border-radius:5px;color:#5a6980;white-space:nowrap}
+.mock-tab.active{background:#dce9f7;color:#1f4d78;font-weight:700}
+.mock-logout{font-size:7.2px;color:#ffffff;background:#1f4f7d;border:1px solid #1a456f;border-radius:6px;padding:3px 6px;white-space:nowrap}
+.mock-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:8px 10px;background:linear-gradient(180deg,#e6edf5 0%,#dbe3ec 100%)}
+.mock-cell{background:linear-gradient(140deg,rgba(249,252,255,.95),rgba(228,235,244,.92));border-radius:10px;padding:8px;border:1px solid rgba(171,186,204,.7);box-shadow:0 8px 16px rgba(38,53,73,.12),inset 0 1px 0 rgba(255,255,255,.62)}
+.mock-cell-name{font-size:8.3px;font-weight:700;color:#1f2734;margin-bottom:4px;display:flex;align-items:center;justify-content:space-between;gap:5px}
+.mock-chip{font-size:7.6px;background:rgba(215,224,234,.74);border:1px solid #d2dce7;border-radius:7px;padding:2px 5px;color:#1d2734;margin-bottom:3px;display:flex;justify-content:space-between;align-items:center;gap:4px}
+.mock-chip span:first-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:70px}
+.mock-chip .s-g{color:#1f7a53;font-weight:700}
+.mock-chip .s-a{color:#8a6a2a;font-weight:700}
+.mock-chip .s-r{color:#925454;font-weight:700}
+.mock-progbar{height:4px;background:#d9e4f0;border-radius:999px;margin-top:5px;overflow:hidden}
+.mock-progfill{height:100%;border-radius:999px;background:#97d2ad}
+.mock-badge{display:inline-flex;align-items:center;justify-content:center;font-size:7px;padding:1px 5px;border-radius:999px;min-width:19px;font-weight:700;float:none}
+.mock-badge-g{background:#198f63;color:#fff}
+.mock-badge-a{background:#b68a2d;color:#fff}
+.mock-badge-r{background:#a45454;color:#fff}
+.mock-badge-n{background:#e4e9ef;color:#6d7b8c}
+.mock-empty{font-size:7.6px;color:#8b98aa;margin-top:6px;font-style:italic}
 
 /* ── LOGOS / TRUST BAR ───────────────────────────────────────────────── */
 .trust-bar{background:linear-gradient(180deg,#f5f8fc 0%,#f8fafd 100%);border-top:1px solid #d5e0ec;border-bottom:1px solid #d5e0ec;padding:32px 0}
@@ -468,13 +477,24 @@ footer{background:var(--ink);padding:64px 0 32px}
             <div class="hero-screen-url">application-due-diligence.netlify.app</div>
           </div>
           <div class="mock-topbar">
-            <div class="mock-logo"><img src="assets/logo.png" alt=""/></div>
-            <div class="mock-orgname">Eastern Cape Dept of Health — ADC</div>
+            <div class="mock-brand">
+              <div class="mock-logo"><img src="assets/logo.png" alt=""/></div>
+              <div class="mock-org">
+                <div class="mock-orgname">Eastern Cape Dept of Health</div>
+                <div class="mock-orgsub">Application Due Diligence Canvas</div>
+              </div>
+            </div>
+            <div class="mock-user">Analyst | admin</div>
+          </div>
+          <div class="mock-tabshell">
             <div class="mock-tabs">
               <div class="mock-tab active">Canvas</div>
               <div class="mock-tab">Pricing</div>
+              <div class="mock-tab">TOR</div>
+              <div class="mock-tab">Queries</div>
               <div class="mock-tab">Reports</div>
             </div>
+            <div class="mock-logout">Log out</div>
           </div>
           <div class="mock-grid">
             <div class="mock-cell">
@@ -508,8 +528,8 @@ footer{background:var(--ink);padding:64px 0 32px}
               <div class="mock-progbar"><div class="mock-progfill" style="width:100%;background:#BA7517"></div></div>
             </div>
             <div class="mock-cell">
-              <div class="mock-cell-name">Analytics &amp; BI <span class="mock-badge" style="background:#e9f0f8;color:#61758d">–</span></div>
-              <div style="font-size:8px;color:#72869d;margin-top:6px;font-style:italic">No applications yet</div>
+              <div class="mock-cell-name">Analytics &amp; BI <span class="mock-badge mock-badge-n">–</span></div>
+              <div class="mock-empty">No applications yet</div>
             </div>
           </div>
         </div>
