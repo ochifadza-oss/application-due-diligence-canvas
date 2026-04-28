@@ -162,6 +162,19 @@ nav.scrolled{background:linear-gradient(112deg,rgba(10,30,54,.95) 0%,rgba(21,56,
 .trust-logo:hover{color:#1f3f66;border-color:#a5bbd1;box-shadow:0 6px 18px rgba(24,53,86,.1);transform:translateY(-1px)}
 .trust-sep{font-size:18px;line-height:1;color:#93a6bc;font-weight:700;opacity:.9}
 
+/* ── USE CASES ───────────────────────────────────────────────────────── */
+.use-cases-section{background:var(--white)}
+.use-cases-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:38px}
+.use-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:22px;transition:all .25s}
+.use-card:hover{border-color:#9fb4cb;box-shadow:0 10px 28px rgba(24,53,86,.1);transform:translateY(-2px)}
+.use-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.use-icon{width:36px;height:36px;border-radius:10px;background:#e8eef5;border:1px solid #d3dde8;display:flex;align-items:center;justify-content:center;color:#1f3f66}
+.use-title{font-size:14px;font-weight:800;color:var(--ink);letter-spacing:.01em}
+.use-copy{font-size:13px;line-height:1.68;color:var(--ink-2)}
+.use-points{margin-top:12px;display:flex;flex-direction:column;gap:7px}
+.use-point{font-size:12px;color:#45607c;display:flex;align-items:flex-start;gap:7px}
+.use-point i{color:var(--teal);margin-top:2px;font-size:11px}
+
 /* ── PROBLEM ─────────────────────────────────────────────────────────── */
 .problem-section{background:var(--white)}
 .problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:48px}
@@ -220,15 +233,23 @@ nav.scrolled{background:linear-gradient(112deg,rgba(10,30,54,.95) 0%,rgba(21,56,
 .tor-value{font-size:12px;color:var(--ink);background:var(--surface);border-radius:6px;padding:6px 10px;border:1px solid var(--border)}
 
 /* ── HOW IT WORKS ─────────────────────────────────────────────────────── */
-.how-section{background:var(--white)}
-.steps-track{position:relative;margin-top:56px}
-.steps-track::before{content:'';position:absolute;left:28px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,var(--gold) 10%,var(--gold) 90%,transparent);opacity:.3}
-.step-item{display:flex;gap:32px;margin-bottom:48px;position:relative}
-.step-num{width:56px;height:56px;border-radius:50%;background:var(--ink);color:var(--white);font-family:Arial,sans-serif;font-size:20px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;border:3px solid var(--gold)}
-.step-body{padding-top:10px}
-.step-title{font-size:20px;font-weight:700;color:var(--ink);margin-bottom:8px}
-.step-desc{font-size:15px;color:var(--ink-2);line-height:1.7;max-width:500px}
-.step-time{display:inline-block;margin-top:10px;font-size:12px;font-weight:600;color:var(--gold);background:var(--gold-light);padding:4px 12px;border-radius:20px}
+.how-section{background:var(--surface)}
+.journey-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:40px}
+.journey-step{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:22px;position:relative;transition:all .25s}
+.journey-step:hover{border-color:#a9bed3;box-shadow:0 10px 24px rgba(23,48,77,.1)}
+.journey-num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--ink);color:#fff;font-size:13px;font-weight:800;margin-bottom:12px}
+.journey-title{font-size:17px;font-weight:800;color:var(--ink);margin-bottom:8px;letter-spacing:-.01em}
+.journey-desc{font-size:13px;color:var(--ink-2);line-height:1.7}
+.journey-time{display:inline-block;margin-top:12px;padding:4px 10px;background:#e9f1fb;color:#1f4d78;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.journey-outcome{margin-top:28px;background:linear-gradient(115deg,#13355c 0%,#1f4d7f 55%,#224565 100%);border-radius:18px;padding:24px;border:1px solid rgba(255,255,255,.12);box-shadow:0 20px 36px rgba(15,36,60,.22)}
+.journey-outcome-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:14px;align-items:stretch}
+.journey-lead{padding-right:10px}
+.journey-lead-title{font-size:20px;font-weight:800;line-height:1.2;color:#eef5fd;margin-bottom:8px;letter-spacing:-.01em}
+.journey-lead-copy{font-size:13px;line-height:1.7;color:rgba(237,245,253,.78)}
+.journey-metric{background:rgba(255,255,255,.08);border:1px solid rgba(197,217,240,.26);border-radius:14px;padding:14px}
+.journey-metric-num{font-size:24px;font-weight:800;color:#fff;line-height:1}
+.journey-metric-num span{font-size:13px;color:#d3e3f7}
+.journey-metric-label{font-size:11px;color:#d3e3f7;letter-spacing:.06em;text-transform:uppercase;margin-top:7px}
 
 /* ── PRICING ─────────────────────────────────────────────────────────── */
 .pricing-section{background:var(--ink);position:relative;overflow:hidden}
@@ -362,6 +383,9 @@ footer{background:var(--ink);padding:64px 0 32px}
 @media(max-width:900px){
   .grid-2,.feature-content.active{grid-template-columns:1fr}
   .grid-3,.proof-grid,.pricing-cards,.compliance-grid{grid-template-columns:1fr}
+  .use-cases-grid,.journey-grid{grid-template-columns:1fr 1fr}
+  .journey-outcome-grid{grid-template-columns:1fr 1fr}
+  .journey-lead{grid-column:1/-1;padding-right:0}
   .grid-4{grid-template-columns:1fr 1fr}
   .problem-grid{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr 1fr}
@@ -377,6 +401,7 @@ footer{background:var(--ink);padding:64px 0 32px}
   .section{padding:64px 0}
   .nav-links{display:none}
   .hero-title{font-size:2.8rem}
+  .use-cases-grid,.journey-grid,.journey-outcome-grid{grid-template-columns:1fr}
   .hero-stats{grid-template-columns:1fr;padding:14px 16px}
   .hero-stat{padding:2px 0}
   .hero-stat+.hero-stat{border-left:none;border-top:1px solid #d1dce9;padding-left:0;padding-top:16px;margin-top:16px}
@@ -414,6 +439,7 @@ footer{background:var(--ink);padding:64px 0 32px}
         <span class="nav-brand">ADC System</span>
       </div>
       <div class="nav-links">
+        <a href="#use-cases">Use cases</a>
         <a href="#features">Features</a>
         <a href="#how-it-works">How it works</a>
         <a href="#pricing">Pricing</a>
@@ -569,6 +595,75 @@ footer{background:var(--ink);padding:64px 0 32px}
     </div>
   </div>
 </div>
+
+<!-- ── USE CASES ─────────────────────────────────────────────────────── -->
+<section class="section use-cases-section" id="use-cases">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="tag tag-blue">See how each team uses ADC</span>
+      <h2 style="font-size:clamp(2rem,4vw,2.8rem);font-weight:800;color:var(--ink);margin-top:16px;margin-bottom:12px;letter-spacing:-.02em">
+        One platform, multiple roles,<br>one audit-ready output
+      </h2>
+      <p style="font-size:1rem;color:var(--ink-2);max-width:640px;margin:0 auto;line-height:1.75">
+        Like modern platform teams, ADC brings business, compliance, engineering, and delivery into one shared workflow instead of fragmented spreadsheets and email threads.
+      </p>
+    </div>
+
+    <div class="use-cases-grid">
+      <article class="use-card reveal reveal-delay-1">
+        <div class="use-head">
+          <div class="use-icon"><i class="fa-solid fa-briefcase" aria-hidden="true"></i></div>
+          <h3 class="use-title">Business leadership</h3>
+        </div>
+        <p class="use-copy">Get a clear, portfolio-wide picture of value, cost, and risk before budget and procurement decisions are locked in.</p>
+        <div class="use-points">
+          <div class="use-point"><i class="fa-solid fa-check" aria-hidden="true"></i><span>Executive-ready summaries</span></div>
+          <div class="use-point"><i class="fa-solid fa-check" aria-hidden="true"></i><span>TCO visibility across domains</span></div>
+          <div class="use-point"><i class="fa-solid fa-check" aria-hidden="true"></i><span>Prioritised action recommendations</span></div>
+        </div>
+      </article>
+
+      <article class="use-card reveal reveal-delay-2">
+        <div class="use-head">
+          <div class="use-icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></div>
+          <h3 class="use-title">Compliance & audit</h3>
+        </div>
+        <p class="use-copy">Maintain evidence, workflow history, and formal documentation aligned to PFMA, MFMA, POPIA, and AG review expectations.</p>
+        <div class="use-points">
+          <div class="use-point"><i class="fa-solid fa-check" aria-hidden="true"></i><span>Traceable query lifecycle</span></div>
+          <div class="use-point"><i class="fa-solid fa-check" aria-hidden="true"></i><span>Signed TOR and reporting outputs</span></div>
+          <div class="use-point"><i class="fa-solid fa-check" aria-hidden="true"></i><span>Consistent governance record</span></div>
+        </div>
+      </article>
+
+      <article class="use-card reveal reveal-delay-3">
+        <div class="use-head">
+          <div class="use-icon"><i class="fa-solid fa-gears" aria-hidden="true"></i></div>
+          <h3 class="use-title">ICT engineering teams</h3>
+        </div>
+        <p class="use-copy">Capture technical health and operational concerns in context, linked to applications, vendors, and implementation realities.</p>
+        <div class="use-points">
+          <div class="use-point"><i class="fa-solid fa-check" aria-hidden="true"></i><span>Criterion-based scoring</span></div>
+          <div class="use-point"><i class="fa-solid fa-check" aria-hidden="true"></i><span>Domain-level architecture view</span></div>
+          <div class="use-point"><i class="fa-solid fa-check" aria-hidden="true"></i><span>Shared visibility with non-technical teams</span></div>
+        </div>
+      </article>
+
+      <article class="use-card reveal reveal-delay-4">
+        <div class="use-head">
+          <div class="use-icon"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></div>
+          <h3 class="use-title">PMO & delivery</h3>
+        </div>
+        <p class="use-copy">Move from ad-hoc review exercises to a repeatable due-diligence operating rhythm across departments and portfolio cycles.</p>
+        <div class="use-points">
+          <div class="use-point"><i class="fa-solid fa-check" aria-hidden="true"></i><span>Standardised review cadence</span></div>
+          <div class="use-point"><i class="fa-solid fa-check" aria-hidden="true"></i><span>Reusable templates and settings</span></div>
+          <div class="use-point"><i class="fa-solid fa-check" aria-hidden="true"></i><span>Faster turnaround to board packs</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
 <!-- ── PROBLEM ─────────────────────────────────────────────────────────── -->
 <section class="section problem-section" id="problem">
@@ -830,63 +925,52 @@ footer{background:var(--ink);padding:64px 0 32px}
     <div class="text-center reveal mb-12">
       <span class="tag tag-blue">How It Works</span>
       <h2 style="font-size:clamp(2rem,4vw,2.8rem);font-weight:800;color:var(--ink);margin-top:16px;margin-bottom:12px;letter-spacing:-.02em">
-        From zero to boardroom-ready<br>in five steps
+        From portfolio chaos to governed decisions<br>in three phases
       </h2>
+      <p style="font-size:1rem;color:var(--ink-2);max-width:620px;margin:0 auto;line-height:1.75">
+        Adapted to the same modern platform rhythm you referenced: onboard quickly, operationalise the workflow, then scale governance and reporting.
+      </p>
     </div>
-    <div class="grid-2" style="gap:5rem;align-items:flex-start">
-      <div class="steps-track">
-        <div class="step-item reveal">
-          <div class="step-num">1</div>
-          <div class="step-body">
-            <div class="step-title">Subscribe and configure</div>
-            <div class="step-desc">Choose your plan, subscribe online, and receive instant access. Set your organisation name, logo, and configure your 9 business domain labels to match your department's structure.</div>
-            <div class="step-time">⏱ 15 minutes</div>
-          </div>
+    <div class="journey-grid">
+      <article class="journey-step reveal">
+        <div class="journey-num">1</div>
+        <h3 class="journey-title">Onboard & map</h3>
+        <p class="journey-desc">Subscribe, configure your organisation, and map all applications into ADC's domain canvas. Bring in existing inventory data and establish a single source of truth.</p>
+        <span class="journey-time">15-90 min</span>
+      </article>
+
+      <article class="journey-step reveal reveal-delay-1">
+        <div class="journey-num">2</div>
+        <h3 class="journey-title">Assess & govern</h3>
+        <p class="journey-desc">Rate application health, capture TCO, and run issues through a structured workflow so every concern is resolved with traceable evidence and ownership.</p>
+        <span class="journey-time">Same day</span>
+      </article>
+
+      <article class="journey-step reveal reveal-delay-2">
+        <div class="journey-num">3</div>
+        <h3 class="journey-title">Decide & report</h3>
+        <p class="journey-desc">Generate management-ready reports and AI-assisted recommendations for prioritised Keep/Upgrade/Replace/Retire decisions with audit-ready documentation.</p>
+        <span class="journey-time">30-60 min</span>
+      </article>
+    </div>
+
+    <div class="journey-outcome reveal reveal-delay-1">
+      <div class="journey-outcome-grid">
+        <div class="journey-lead">
+          <div class="journey-lead-title">Designed for fast rollout and long-term governance</div>
+          <div class="journey-lead-copy">ADC is built so departments can start quickly without sacrificing controls. Teams collaborate in one workflow while leadership receives clear, defensible outputs.</div>
         </div>
-        <div class="step-item reveal reveal-delay-1">
-          <div class="step-num">2</div>
-          <div class="step-body">
-            <div class="step-title">Load your application inventory</div>
-            <div class="step-desc">Add each application to its business domain — name, vendor, and notes. Import from your existing spreadsheet or add manually. No technical skills required.</div>
-            <div class="step-time">⏱ 1–2 hours</div>
-          </div>
+        <div class="journey-metric">
+          <div class="journey-metric-num">4×</div>
+          <div class="journey-metric-label">Faster than spreadsheet review</div>
         </div>
-        <div class="step-item reveal reveal-delay-2">
-          <div class="step-num">3</div>
-          <div class="step-body">
-            <div class="step-title">Rate and price each application</div>
-            <div class="step-desc">Score every application against 4 criteria (1–5 stars). Capture TCO — licence, maintenance, and implementation costs. Assign a Keep / Upgrade / Replace / Retire recommendation.</div>
-            <div class="step-time">⏱ 2–4 hours</div>
-          </div>
+        <div class="journey-metric">
+          <div class="journey-metric-num">1 <span>day</span></div>
+          <div class="journey-metric-label">Typical portfolio turnaround</div>
         </div>
-        <div class="step-item reveal reveal-delay-3">
-          <div class="step-num">4</div>
-          <div class="step-body">
-            <div class="step-title">Manage queries and issues</div>
-            <div class="step-desc">Log any queries that arise during the review — vendor queries, technical issues, contract questions. Track each through the 5-step workflow with a full response thread.</div>
-            <div class="step-time">⏱ Ongoing</div>
-          </div>
-        </div>
-        <div class="step-item reveal reveal-delay-4">
-          <div class="step-num">5</div>
-          <div class="step-body">
-            <div class="step-title">Generate your report</div>
-            <div class="step-desc">Export a professional PDF or Excel portfolio report. Use the AI Analysis feature to generate a written narrative with prioritised recommendations. Submit to management or the AG.</div>
-            <div class="step-time">⏱ 30 minutes</div>
-          </div>
-        </div>
-      </div>
-      <div class="reveal" style="position:sticky;top:120px">
-        <div style="background:var(--surface);border-radius:var(--radius-lg);padding:32px;border:1px solid var(--border)">
-          <div class="tag tag-teal mb-4">Total time from start to report</div>
-          <div style="font-family:Arial,sans-serif;font-size:4rem;font-weight:800;color:var(--ink);line-height:1;margin-bottom:8px">1 day</div>
-          <div style="font-size:15px;color:var(--ink-2);line-height:1.7;margin-bottom:24px">A typical department with 20–30 applications can complete a full due diligence review — canvas, pricing, TOR, queries, and report — in a single working day.</div>
-          <div style="border-top:1px solid var(--border);padding-top:20px">
-            <div style="font-size:13px;font-weight:600;color:var(--ink-3);margin-bottom:12px;letter-spacing:.06em;text-transform:uppercase">Compared to traditional Excel approach:</div>
-            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px"><div style="font-size:11px;color:var(--danger);font-weight:600;width:24px">✗</div><div style="font-size:13px;color:var(--ink-2)">2–6 weeks of spreadsheet work</div></div>
-            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px"><div style="font-size:11px;color:var(--danger);font-weight:600;width:24px">✗</div><div style="font-size:13px;color:var(--ink-2)">No workflow or query tracking</div></div>
-            <div style="display:flex;align-items:center;gap:10px"><div style="font-size:11px;color:var(--danger);font-weight:600;width:24px">✗</div><div style="font-size:13px;color:var(--ink-2)">No audit trail for AG submission</div></div>
-          </div>
+        <div class="journey-metric">
+          <div class="journey-metric-num">100<span>%</span></div>
+          <div class="journey-metric-label">Traceable decision trail</div>
         </div>
       </div>
     </div>
@@ -1233,7 +1317,8 @@ footer{background:var(--ink);padding:64px 0 32px}
 </div>
 
 <script>
-let APP_URL = 'https://application-due-diligence.netlify.app'
+const IS_LOCAL_HOST = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+let APP_URL = IS_LOCAL_HOST ? 'http://localhost:5173' : window.location.origin
 const QUERY_PARAMS = new URLSearchParams(window.location.search)
 const apiBaseFromQuery = QUERY_PARAMS.get('api_base')
 const MARKETPLACE_API_BASE =
